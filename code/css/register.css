@@ -1,0 +1,367 @@
+/*清除样式*/
+input{
+	background-color: transparent;
+	border: none;
+}
+
+
+.btn_false,
+.btn_no
+{
+	background:rgba(53,61,84,1);
+	color:rgba(116,127,155,1);
+}
+.gradient_btn,
+.btn_true,
+.btn_ok
+{
+	/*background:linear-gradient(90deg,#C700CA 0%,#236ED6 100%);*/
+	background:linear-gradient(90deg,rgba(184,19,195,1) 0%,rgba(57,110,207,1) 100%);
+	color:rgba(255,255,255,1);
+}
+
+html{
+	background: #131526;
+}
+
+/* 背景 */
+.bg{
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	left: 0;
+	width: 100vw;
+}
+/* 页面内容 */
+.page_box{
+	position: relative;
+	z-index: 1;
+}
+
+/* 注册表 --------------------------------------- */
+.form_box{
+}
+.form_li_style{
+	/*margin-left: 1.39rem;*/
+	
+	width:7.2rem;
+	margin: auto;
+}
+.form_title_box{
+	margin-top: 2.2rem;
+	margin-bottom: calc( 0.88rem - 0.41rem);
+	/* 0.41rem .form_input_box 上边距 */
+}
+.form_title_box2{
+	margin-bottom: calc(98 / 750 * 100vw);
+}
+.form_title{
+	height:0.63rem;
+	line-height:0.63rem;
+	font-size:0.67rem;
+	font-family:PingFang SC;
+	font-weight:bold;
+	color:rgba(255,255,255,1);
+
+}
+.form_title_tip{
+	margin-top: 0.28rem;
+
+	height:0.35rem;
+	line-height:0.35rem;
+	font-size:0.37rem;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(116,127,155,1);
+}
+.href{
+	color: #5393FF;
+}
+
+.form_input_box{
+	margin-top: 0.41rem;
+
+	width:7.2rem;
+	height:1.2rem;
+	line-height:1.2rem;
+	background:rgba(33,39,57,1);
+	border-radius:1rem;
+
+	overflow: hidden;
+
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+
+	-ms-align-items: center;
+	align-items: center;
+
+}
+.form_input_head{
+	flex-shrink: 0;
+
+	padding-left: 0.56rem;
+	padding-right: 0rem;
+
+	font-size:0.37rem;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(255,255,255,1);
+
+}
+.form_input_head_2{
+	flex-shrink: 0;
+
+	padding-left: 0.44rem;
+	padding-right: 0.35rem;
+
+	line-height: 0.53rem;
+
+	border-right: 0.01rem solid rgba(255,255,255,1);
+
+	font-size:0.37rem;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(255,255,255,1);
+}
+.form_input{
+	padding-left: 0.56rem;
+	height: 100%;
+	/*height:1.2rem;*/
+
+	flex-grow: 1;
+	flex-shrink: 1;
+	width: 0;
+
+	font-size:0.37rem;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(116,127,155,1);
+
+	background:rgba(33,39,57,1);
+
+}
+.form_input::-webkit-input-placeholder {
+	color:rgba(116,127,155,1);
+}
+.form_input:-moz-placeholder{
+	color:rgba(116,127,155,1);
+}
+.form_input::-moz-placeholder{
+	color:rgba(116,127,155,1);
+}
+.form_input:-ms-input-placeholder{
+	color:rgba(116,127,155,1);
+}
+
+.form_input_icon{
+	flex-shrink: 0;
+	margin: 0 0.49rem;
+	/*margin: 0.47rem 0.49rem;*/
+
+	width:0.27rem;
+	height:0.27rem;
+	/*background:rgba(116,127,155,1);*/
+}
+.form_verify_box{
+
+	flex-shrink: 0;
+
+	/*margin: 0.13rem 0.16rem;*/
+	margin: 0 0.16rem;
+	width: 2.67rem;
+	/*height: 0.93rem;*/
+	line-height: 0.93rem;
+	border-radius: 1rem;
+
+	text-align: center;
+
+	font-size:0.37rem;
+	font-family:PingFang SC;
+	font-weight:500;
+}
+.form_verify{}
+.form_btn{
+	width:7.2rem;
+	height:1.2rem;
+	line-height:1.2rem;
+	border-radius:1rem;
+
+	margin-top: 1.75rem;
+	text-align: center;
+
+	font-size:0.43rem;
+	font-family:PingFang SC;
+	font-weight:bold;
+}
+
+/* 注册表 -end --------------------------------------- */
+
+
+/* 下载app --------------------------------------- */
+.app_down_box{
+	/*text-align: center;*/
+}
+.down_logo{
+	display: block;
+	margin: auto;
+
+	width: 2.8rem;
+	height: 4.43rem;
+	margin-top: 2.2rem;
+	margin-bottom: 2.15rem;
+}
+.down_btn{
+	margin: auto;
+	margin-bottom: 0.4rem;
+
+	/*width:4.67rem;*/
+	width:6.67rem;
+	height:1.2rem;
+	line-height:1.2rem;
+	border-radius:1rem;
+
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+
+	/*padding: 0 0.79rem;*/
+	padding-left: 0.79rem;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	font-size:0.43rem;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(254,254,255,1);
+}
+.down_icon{
+	width:0.55rem;
+	max-height:0.67rem;
+	margin-right: 0.29rem;
+}
+.down_txt{
+	min-width:2.37rem;
+	text-align: center;
+}
+/* 下载app -end --------------------------------------- */
+
+
+/* 注册成功页面 --------------------------------------- */
+.register_ok_logo_box{
+	margin-top: 2.2rem;
+	margin-bottom: 2.51rem;
+}
+.register_ok_logo{
+	display: block;
+	margin: auto;
+
+	width: 3.2rem;
+	height: 3.2rem;
+}
+.register_ok_logo_tip{
+	margin-top: 0.8rem;
+	text-align: center;
+
+	/*height:0.41rem;*/
+	line-height:0.41rem;
+	font-size:0.4rem;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(116,127,155,1);
+
+}
+/* 注册成功页面 -end --------------------------------------- */
+
+
+/* 弹出消息 --------------------------------------- */
+.popup_box{
+	background-color: #182031;
+	text-align: center;
+	width: 4.8rem;
+}
+.popup_icon{
+	margin-top: 0.56rem;
+	width: 2.93rem;
+	height: 2.93rem;
+}
+.popup_tips{
+	text-align: center;
+	/*height:0.36rem;*/
+	line-height:0.36rem;
+	font-size:0.37rem;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(116,127,155,1);
+
+	margin-top: 0.59rem;
+	margin-bottom: 0.77rem;
+
+}
+.popup_btn{
+	text-align: center;
+	height: calc( 0.28rem * 2 + 0.36rem);
+	line-height: calc( 0.28rem * 2 + 0.36rem);
+	font-size:0.37rem;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(255,255,255,1);
+
+}
+/* 弹出消息 -end --------------------------------------- */
+
+
+/* 登录_分紅塔 --------------------------------------- */
+.form_input_head_img{
+	flex-shrink: 0;
+	/*padding: 0 calc(20 / 750 * 100vw);*/
+	margin-left: calc(40 / 750 * 100vw);
+	margin-right: calc(20 / 750 * 100vw);
+	width: calc(30 / 750 * 100vw);
+	height:  calc(30 / 750 * 100vw);
+
+}
+.p0{
+	padding: 0 !important;
+}
+.login_tip_info{
+	/*position: fixed;*/
+	bottom: 0;
+	width: 100%;
+
+	margin-top: calc(400 / 750 * 100vw);
+}
+.login_tip_info_head{
+	margin-bottom: calc(55 / 750 * 100vw);
+}
+.login_tip_info_img{
+	width: calc(50 / 750 * 100vw);
+	height: calc(50 / 750 * 100vw);
+	margin-right: calc(13 / 750 * 100vw);
+}
+.login_tip_info_name{
+	font-size:calc(46 / 750 * 100vw);
+	font-family:ShiShangZhongHeiJianTi;
+	font-weight:400;
+	color:rgba(255,255,255,1);
+}
+.login_tip_info_treaty_txt{
+	text-align: center;
+	font-size:calc(28 / 750 * 100vw);
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(116,127,155,1);
+
+	margin-bottom: calc(67 / 750 * 100vw);
+}
+.login_tip_info_treaty_herf{}
+
+/* 登录_分紅塔 -end --------------------------------------- */
+

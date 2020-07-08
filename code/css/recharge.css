@@ -1,0 +1,176 @@
+body {
+    background: white;
+}
+
+/* 测试使用 */
+
+/* --------------- 测试使用 -end -------------------- */
+
+/* 全局样式 */
+input{
+    border: none;
+    background: transparent;
+}
+.txt_l{
+    text-align: left !important;
+}
+.txt_over_ell_2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.toast-icon i {
+    font-size: 2rem;
+}
+
+.toast-message {
+    font-size: .45rem;
+}
+
+.op0 {
+    opacity: 0;
+}
+
+/* --------------- 全局样式 -end -------------------- */
+
+/* title_box */
+.title_box {
+    text-align: center;
+}
+
+.title_txt {
+    font-size: 0.93rem;
+    font-family: PingFang SC;
+    font-weight: bold;
+    color: rgba(249, 60, 65, 1);
+
+    line-height: 1.72rem;
+}
+
+.title_tip {
+    font-size: 0.37rem;
+    font-family: PingFang SC;
+    font-weight: 500;
+    color: rgba(97, 97, 97, 1);
+    line-height: 1;
+    margin-bottom: 0.64rem;
+}
+
+/* --------------- title_box -end -------------------- */
+
+/* input_box */
+.input_box {}
+
+.input_li {
+    margin: auto;
+    display: flex;
+    align-items: center;
+
+    width:9.2rem;
+    height:1.33rem;
+    background:rgba(244,244,244,1);
+    border-radius:0rem;
+    padding: 0 0.25rem;
+
+    margin-bottom: 0.32rem;
+
+}
+
+.input_li+.input_li {}
+
+.input_name {
+    font-size:0.37rem;
+    font-family:PingFang SC;
+    font-weight:500;
+    color:rgba(0,0,0,1);
+}
+
+.input {
+    height: 100%;
+    flex-grow: 1;
+    text-align: right;
+    font-family:PingFang SC;
+
+}
+
+.input_icon,
+.input {
+    font-size:0.37rem;
+    font-weight:500;
+    /*color:rgba(159,159,159,1);*/
+}
+
+.input_icon {
+    margin-left: 0.27rem;
+    color:rgba(159,159,159,1);
+}
+
+/* --------------- input_box -end -------------------- */
+
+/* else */
+.red_tip {
+    line-height: 0.66rem;
+
+    padding-left: 0.5rem;
+    line-height: 0.53rem;
+    color: red;
+    font-size: 0.35rem;
+}
+
+.tips_box {
+    width:8.95rem;
+    margin: auto;
+    margin-top: 0.66rem;
+    line-height: 0.66rem;
+
+    font-size:0.37rem;
+    font-family:PingFang SC;
+    font-weight:500;
+    color:rgba(159,159,159,1);
+}
+
+.tips_title {}
+
+.tip_li {}
+
+.tips_pre::before {
+    content: '*';
+}
+
+/* --------------- else -end -------------------- */
+
+/* btns */
+.btns {
+    padding-bottom: 0.4rem;
+}
+.btn {
+    text-align: center;
+
+    width:9.2rem;
+    margin: auto;
+    height:1.33rem;
+    background:rgba(249,60,65,1);
+    border-radius:0rem;
+
+    font-size:0.37rem;
+    font-family:PingFang SC;
+    font-weight:bold;
+    color:rgba(255,255,255,1);
+}
+
+.op0 {
+    opacity: 0;
+}
+
+.btn_fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* --------------- btn -end -------------------- */

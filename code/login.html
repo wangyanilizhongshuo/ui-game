@@ -1,0 +1,512 @@
+<!--#include file="register.html?types=login_bonus_push"-->
+<!-- <iframe src="register.html?types=login_bonus_push" frameborder="0"></iframe> -->
+<!-- <object data="register.html" type="text/x-scriptlet" ></object>  -->
+<!DOCTYPE html>
+
+<html>
+<!-- <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
+	<script src="common/cdn/jquery.min.js"></script>
+<script>
+    window.onerror = function(){
+    	console.log('全局报错监听 window.onerror', JSON.stringify(arguments));
+    }
+</script>
+    <script src="common/check_js.js?1589263171368"></script>
+<!-- 
+<script src="//js.fundebug.cn/fundebug.2.0.0.min.js"  
+	apikey="34c5a665a8eaa0eff84b5eb06e51aaf36156b98406917d3972fa6d5e7631f952" 
+	crossorigin="anonymous"
+></script>
+ -->
+<!--  -->
+<!-- <script src="//js.fundebug.cn/fundebug.revideo.0.6.0.min.js" domain="https://webh5.wangjiangwei.top/iU/h5/code"></script> -->
+
+<script>
+
+    /**
+     * 对象合并polyfill
+     * */
+    function zyEs6AssignPolyfill() {
+        if (!Object.assign) {
+            Object.defineProperty(Object, "assign", {
+                enumerable: false,
+                configurable: true,
+                writable: true,
+                value: function (target, firstSource) {
+                    "use strict";
+                    if (target === undefined || target === null)
+                        throw new TypeError("Cannot convert first argument to object");
+                    var to = Object(target);
+                    for (var i = 1; i < arguments.length; i++) {
+                        var nextSource = arguments[i];
+                        if (nextSource === undefined || nextSource === null) continue;
+                        var keysArray = Object.keys(Object(nextSource));
+                        for (var nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex++) {
+                            var nextKey = keysArray[nextIndex];
+                            var desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
+                            if (desc !== undefined && desc.enumerable) to[nextKey] = nextSource[nextKey];
+                        }
+                    }
+                    return to;
+                }
+            });
+        }
+    }
+    zyEs6AssignPolyfill()
+</script>
+
+<!-- <script src="//cdn.jsdelivr.net/npm/eruda"></script> -->
+<!-- <script src="common/cdn/eruda.js"></script> -->
+<!-- <script>eruda.init();</script> -->
+<script>
+    // vant.Toast('game.html eruda');
+    // vue.controller_btn_show = true;
+    // vue.is_ios = false;
+    // eruda.position({x: 20, y: 20})
+
+    ;(function () {
+        var src = 'common/cdn/eruda.js?1589263171368';
+        if (!/eruda=true/.test(window.location) && localStorage.getItem('active-eruda') != 'true') return;
+        document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+        document.write('<scr' + 'ipt>eruda.init();eruda.position({x: 20, y: 20});</scr' + 'ipt>');
+    })();
+</script>
+<head>
+    <meta charset="utf-8" />
+    <title>新用户注册</title>
+
+	<!-- ------------------- 不缓存 -------------------  -->
+	<!--  ios内嵌H5页面缓存问题
+
+		ios嵌入了H5页面，修改了H5页面里的js后，ios app内页面不能及时更新最新代码， 
+		原来是 ios由于自带缓存的原因。
+
+		1.  给各个文件添加 版本号       
+
+		2.   meta 标签设置强制不缓存
+			<meta http-equiv="Pragma" content="no-cache">
+			<meta http-equiv="Cache-Control" content="no-cache">
+			<meta http-equiv="Expires" content="0">
+	-->
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<!-- ------------------- 不缓存 -end -------------------  -->
+	
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover, shrink-to-fit=no" />
+    <!-- rem适配 -->
+    <!-- <script src="//g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script> -->
+    <!-- <script src="//www.wangjiangwei.top/common/flexible_css.js,flexible.js"></script> -->
+    <script src="common/cdn/flexible_css.js,flexible.js"></script>
+
+    <link rel="stylesheet" href="common/wjw_uni/wjw_com.css?1589263171368" />
+    <link rel="stylesheet" href="css/register.css?1589263171368" />
+
+    <style></style>
+</head>
+
+<body>
+	<div id="Vue">
+		<!-- 背景 -->
+		<img class="bg" src="img/register_bg.png" />
+
+		<!-- 页面内容 -->
+		<div class="page_box">
+
+			<!-- 注册表 --------------------------------------- -->
+			<div class="form_box dn" :class='{block: show_type=="register_form_show"}' v-if='show_type=="register_form_show"'>
+				<div class="form_title_box form_li_style">
+					<div class="form_title">用手机号码注册</div>
+					<div class="form_title_tip">
+						<span class="">已有账号？去</span>
+						<!-- @click='show_type="app_down_show"' -->
+						<span class="href" 
+							@click='jump'
+							:data-url='app_down_page'
+						>下载APP</span>
+					</div>
+				</div>
+
+				<!-- 模板
+				<div class="form_input_box">
+					<div class="form_input_head">邀请码</div>
+					<div class="form_input_head_2">+86</div>
+					<input class="form_input" placeholder="请输入您的手机号码" />
+					<img class="form_input_icon" src="img/del.png" />
+					<span class="form_input_icon"></span>
+					<i class="form_input_icon" />
+					<div class="form_verify_box">
+						<div class="form_verify">发送验证码</div>
+					</div>
+				</div>
+				<div class="form_input_box">
+					<input class="form_input" placeholder="请输入您的邀请码" />
+				</div>
+				<div class="form_input_box">
+					<div class="form_input_head_2">+86</div>
+					<input class="form_input" placeholder="请输入您的手机号码" />
+					<img class="form_input_icon" src="img/del.png" />
+				</div>
+				<div class="form_input_box">
+					<div class="form_input_head">邀请码</div>
+					<input class="form_input" placeholder="请输入您的邀请码" />
+				</div>
+				<div class="form_input_box">
+					<input class="form_input" placeholder="请输入您的手机号码" />
+					<div class="form_verify_box">
+						<div class="form_verify">发送验证码</div>
+					</div>
+				</div>
+		 		-->
+
+				<div class="form_input_box form_li_style">
+					<div class="form_input_head_2">+86</div>
+					<input class="form_input" placeholder="请输入您的手机号码" type='number' v-model='tel' maxlength="11" />
+					<img class="form_input_icon" src="img/del.png" @click='tel=""' />
+				</div>
+
+				<!--  
+					<div class="">{{code = code | remove_space}}</div>
+					<div class="">{{code | remove_space}}</div>
+
+					@keydown $event.returnValue=>是否返回值  $event.keyCode=>按键键码值 $event.key=>返回值
+					@input $event.returnValue=>是否返回值 $event.data=>返回值
+
+					.prevent
+
+					@input='console_log($event,$event.keyCode)'
+
+					可用:
+						@keydown.space='$event.key=""'
+						@keydown.space='$event.returnValue=false' 
+
+					缺陷:
+						1.只能阻止用户操作, 无法阻止js输入
+				-->
+				<div class="form_input_box form_li_style">
+					<!-- maxlength 无法阻止js输入 待测试真机h5是否可用  -->
+					<!-- pattern 属性 验证 触发在form的submit阶段 适用于以下 <input> 类型：text, search, url, telephone, email 以及 password  pattern='[^ ]{0,6}' -->
+					<input class="form_input" placeholder="请输入验证码" maxlength='6' v-model='code' />
+					<!-- 
+						class: btn_ok btn_no 
+						verify_time
+						:class='{btn_ok:verify_click,btn_no:!verify_click,}' 
+					-->
+					<div class="form_verify_box " 
+						:class='{btn_ok: !verify_time,btn_no:! !verify_time,}' 
+						@click='tel?send_verify($event):Toast("请输入您的手机号码")' 
+					>
+						<div class="form_verify">{{!verify_time?'发送验证码':verify_time+'s'}}</div>
+					</div>
+				</div>
+
+				<div class="form_input_box form_li_style">
+					<input class="form_input" placeholder="请设置密码" type='password' v-model='password' maxlength='20' />
+				</div>
+
+				<div class="form_input_box form_li_style">
+					<input class="form_input" placeholder="请确认密码" type='password' v-model='password2' maxlength='20' />
+				</div>
+
+				<div class="form_input_box form_li_style">
+					<div class="form_input_head">邀请码</div>
+					<input class="form_input" placeholder="请输入邀请码" v-model='inviter' disabled />
+				</div>
+
+				<!-- class: btn_ok btn_no -->
+				<div class="form_btn form_li_style" 
+					:class='{btn_ok:(tel&&code&&password&&password2&&password==password2&&inviter),btn_no:!(tel&&code&&password&&password2&&password==password2&&inviter),}' 
+					@click='(tel&&code&&password&&password2&&password==password2&&inviter)?confirm_sub($event):confirm_sub_check($event)'
+				>注册</div>
+			</div>
+			<!-- 注册表 -end --------------------------------------- -->
+
+
+			<!-- 登录表 --------------------------------------- -->
+			<!-- 登录接口 app加密信息 -->
+			<div class="form_box dn" :class='{block: show_type=="login_form_show"}' v-if='show_type=="login_form_show"'>
+				<div class="form_title_box form_li_style">
+					<div class="form_title">登录</div>
+					<div class="form_title_tip">
+						<span class="">未注册账号？去</span>
+						<!-- @click='show_type="app_down_show"' -->
+						<span class="href" 
+							@click='jump'
+							:data-url='register_form'
+						>注册</span>
+					</div>
+				</div>
+
+				<div class="form_input_box form_li_style">
+					<div class="form_input_head_2">+86</div>
+					<input class="form_input" placeholder="请输入您的手机号码" type='number' v-model='login_tel' />
+					<img class="form_input_icon" src="img/del.png" @click='login_tel=""' />
+				</div>
+
+				<div class="form_input_box form_li_style">
+					<input class="form_input" placeholder="请设置密码" type='password' v-model='login_password' />
+				</div>
+
+
+				<div class="href ta_c" 
+					style="margin-top: 0.41rem;" 
+					@click='jump'
+					:data-url='forget_password_page'
+				>忘记密码</div>
+
+				<!-- class: btn_ok btn_no -->
+				<div class="form_btn form_li_style" 
+					:class='{btn_ok:(login_tel&&login_password),btn_no:!(login_tel&&login_password),}' 
+					@click='(login_tel&&login_password)?login_sub($event):""'
+				>登录</div>
+			</div>
+			<!-- 登录表 -end --------------------------------------- -->
+
+			<!-- 登录_分紅塔 --------------------------------------- -->
+			<div class="form_box dn" :class='{block: show_type=="login_bonus_push_show"}' v-if='show_type=="login_bonus_push_show"'>
+				<div class="form_title_box form_li_style">
+					<div class="form_title form_title_box2">账号密码登录</div>
+				</div>
+
+				<div class="form_input_box form_li_style">
+					<!-- img/app_icon.png -->
+					<!-- img/id_icon.png -->
+					<!-- img/password_icon.png -->
+
+					<img class="form_input_head_img" src="img/id_icon.png" />
+					<input class="form_input p0" placeholder="请输入您的账号" type='number' v-model='login_bonus_push_tel' />
+				</div>
+
+				<div class="form_input_box form_li_style">
+					<img class="form_input_head_img" src="img/password_icon.png" />
+					<input class="form_input p0" placeholder="请输入登录密码" type='password' v-model='login_bonus_push_password' />
+				</div>
+
+				<!-- class: btn_ok btn_no -->
+				<div class="form_btn form_li_style" 
+					:class='{btn_ok:(login_bonus_push_tel&&login_bonus_push_password),btn_no:!(login_bonus_push_tel&&login_bonus_push_password),}' 
+					@click='(login_bonus_push_tel&&login_bonus_push_password)?login_bonus_push_sub($event):""'
+				>登录</div>
+
+				<div class="login_tip_info">
+					<div class="login_tip_info_head flex_c">
+						<img class="login_tip_info_img" src="img/app_icon.png" />
+						<div class="login_tip_info_name">哎哟</div>
+					</div>
+					<div class="login_tip_info_treaty_txt">
+						登录即代表您同意 
+						<a class="login_tip_info_treaty_herf" href='rich-text.html?title=用户协议'>用户协议</a>
+						和
+						<a class="login_tip_info_treaty_herf" href='rich-text.html?title=隐私政策'>隐私政策</a>
+					</div>
+				</div>
+			</div>
+			<!-- 登录_分紅塔 -end --------------------------------------- -->
+
+
+			<!-- 忘记密码表 --------------------------------------- -->
+			<div class="form_box dn" :class='{block: show_type=="forget_password_form_show"}' v-if='show_type=="forget_password_form_show"'>
+				<div class="form_title_box form_li_style">
+					<div class="form_title">忘记密码</div>
+				</div>
+
+				<div class="form_input_box form_li_style">
+					<div class="form_input_head_2">+86</div>
+					<input class="form_input" placeholder="请输入您的手机号码" type='number' v-model='forget_tel' />
+					<img class="form_input_icon" src="img/del.png" @click='forget_tel=""' />
+				</div>
+
+				<div class="form_input_box form_li_style">
+					<input class="form_input" placeholder="请输入验证码" v-model='forget_code' />
+					<!-- 
+						class: btn_ok btn_no 
+						verify_time
+						:class='{btn_ok:verify_click,btn_no:!verify_click,}' 
+					-->
+					<div class="form_verify_box " 
+						:class='{btn_ok: !forget_verify_time,btn_no:! !forget_verify_time,}' 
+						@click='forget_tel?forget_send_verify($event):Toast("请输入您的手机号码")' 
+					>
+						<div class="form_verify">{{!forget_verify_time?'发送验证码':forget_verify_time+'s'}}</div>
+					</div>
+				</div>
+
+				<div class="form_input_box form_li_style">
+					<input class="form_input" placeholder="请设置密码" type='password' v-model='forget_password' />
+				</div>
+
+				<div class="form_input_box form_li_style ">
+					<input class="form_input" placeholder="请确认密码" type='password' v-model='forget_password2' />
+				</div>
+
+				<!-- class: btn_ok btn_no -->
+				<div class="form_btn form_li_style" 
+					:class='{btn_ok:(forget_tel&&forget_code&&forget_password&&forget_password2&&forget_password==forget_password2),btn_no:!(forget_tel&&forget_code&&forget_password&&forget_password2&&forget_password==forget_password2),}' 
+					@click='(forget_tel&&forget_code&&forget_password&&forget_password2&&forget_password==forget_password2)?forget_sub($event):""'
+				>提交</div>
+			</div>
+			<!-- 忘记密码表 -end --------------------------------------- -->
+
+
+
+			<!-- 下载app --------------------------------------- -->
+			<div class="app_down_box dn" :class='{block: show_type=="app_down_show"}' v-if='show_type=="app_down_show"'>
+				<img class="down_logo" src="img/logo_white.png" />
+
+				<div class="down_btn btn_ok" 
+					@click='jump'
+					:data-url='app_down_url_Android'
+				>
+					<img class="down_icon" src="img/android.png" />
+					<div class="down_txt">安卓iU互动下载</div>
+				</div>
+				<div class="down_btn btn_ok" 
+					@click='jump'
+					:data-url='market_app_down_url_Android'
+				>
+					<img class="down_icon" src="img/android.png" />
+					<div class="down_txt">安卓iUtoken交易端下载</div>
+				</div>
+				<div class="down_btn btn_ok" 
+					@click='jump'
+					:data-url='app_down_url_iOS'
+				>
+					<img class="down_icon" src="img/apple.png" />
+					<div class="down_txt">苹果iU互动下载</div>
+				</div>
+
+				<div class="down_btn btn_ok" 
+					@click='jump'
+					:data-url='market_app_down_url_iOS'
+				>
+					<img class="down_icon" src="img/apple.png" />
+					<div class="down_txt">苹果iUtoken交易端下载</div>
+				</div>
+				<!-- <div class="" >
+					注：交易端登录账号密码和用户端一致
+				</div> -->
+
+
+
+			</div>
+			<!-- 下载app -end --------------------------------------- -->
+
+
+			<!-- 注册成功页面 --------------------------------------- -->
+			<div class="register_ok_show dn" :class='{block: show_type=="register_ok_show"}' v-if='show_type=="register_ok_show"'>
+				<div class="register_ok_logo_box">
+					<img class="register_ok_logo" src="img/icon_defeated.png" />
+					<div class="register_ok_logo_tip">恭喜您，注册成功</div>
+				</div>
+
+				<div class="down_btn btn_ok" 
+					@click='jump'
+					:data-url='app_down_url_Android'
+				>
+					<img class="down_icon" src="img/android.png" />
+					<div class="down_txt">安卓iU互动下载</div>
+				</div>
+				<div class="down_btn btn_ok" 
+					@click='jump'
+					:data-url='market_app_down_url_Android'
+				>
+					<img class="down_icon" src="img/android.png" />
+					<div class="down_txt">安卓iUtoken交易端下载</div>
+				</div>
+				<div class="down_btn btn_ok" 
+					@click='jump'
+					:data-url='app_down_url_iOS'
+				>
+					<img class="down_icon" src="img/apple.png" />
+					<div class="down_txt">苹果iU互动下载</div>
+				</div>
+
+				<div class="down_btn btn_ok" 
+					@click='jump'
+					:data-url='market_app_down_url_iOS'
+				>
+					<img class="down_icon" src="img/apple.png" />
+					<div class="down_txt">苹果iUtoken交易端下载</div>
+				</div>
+				
+			</div>
+			<!-- 注册成功页面 -end --------------------------------------- -->
+
+
+			<!-- 弹出消息 --------------------------------------- -->
+			<!-- 
+				Popup 弹出层
+				Dialog 弹出框
+				Overlay 遮罩层 嵌入内容 通过默认插槽可以在遮罩层上嵌入任意内容
+				待查找
+			-->
+			<!-- Popup 弹出层
+			<van-popup v-model="show">内容</van-popup>
+			-->
+			<!-- Dialog 弹出框
+			<van-dialog
+			  v-model="show"
+			  title="标题"
+			  show-cancel-button
+			>
+			  content_html
+			</van-dialog>
+			-->
+			<!-- Overlay 遮罩层
+			<van-overlay :show="show" @click="show = false">
+				html
+			</van-overlay>
+			-->
+			<!--  lock-scroll 是否锁定背景滚动 默认true 但是鼠标可滚到 -->
+			<van-popup v-model="popup_show" round class='red dn' :class='{block: popup_show}' overlay-class='res123' >
+				<div class="popup_box">
+
+					<img class="popup_icon" src="img/icon_defeated.png" />
+					<div class="popup_tips">该号码已注册</div>
+					
+					<!-- 
+						popup_show=false
+						@click='jump'
+						:data-url='app_down_page'
+					-->
+					<div class="popup_btn  btn_ok" 
+						@click='popup_show=false,show_type="register_ok_show"' 
+					>去下载</div>
+				</div>
+			</van-popup>
+			<!-- 弹出消息 -end --------------------------------------- -->
+
+
+
+
+
+		</div>
+	</div>
+</body>
+<!-- <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+	<script src="common/cdn/vue.js"></script>
+<!-- ------------------- vant ui -------------------  -->
+<!-- 引入样式文件 -->
+<!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/vant@2.2/lib/index.css"> -->
+	<link rel="stylesheet" href="common/cdn/vant_index.css">
+<!-- 引入 Vue 和 Vant 的 JS 文件 -->
+<!-- <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
+<!-- <script src="//cdn.jsdelivr.net/npm/vant@2.2/lib/vant.min.js"></script> -->
+	<script src="common/cdn/vant.min.js"></script>
+<!-- ------------------- vant ui -end -------------------  -->
+
+
+<script src="js/config.js?1589263171368"></script>
+<!-- <script src="//unpkg.com/crypto-js/crypto-js.js"></script> -->
+<script src="common/cdn/crypto-js.js"></script>
+<!-- <script>var create_api_token;</script> -->
+<script src="js/c_a_t.js?1589263171368"></script>
+
+<script src="common/http.js?1589263171368"></script>
+<script src="js/register.js?1589263171368"></script>
+<script>
+	// this.show_type = 'login_bonus_push_show';
+	vm.show_type = 'login_bonus_push_show';
+</script>
+
+</html>

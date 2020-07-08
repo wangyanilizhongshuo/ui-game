@@ -1,0 +1,1303 @@
+body{
+	/*background: blue;*/
+}
+
+
+/* vant --------------------------------------- */
+
+/* 密码输入框 --------------------------------------- */
+.van-password-input__security{
+	/* 原样式 */
+	height: 50px;
+	/* 原样式 -end */
+	
+	height: auto;
+}
+.van-password-input__security li{
+	padding-top: calc(100% / 6);
+}
+[class*=van-hairline]::after{
+	/* 原样式 */
+	left: -50%;
+	/* 原样式 -end */
+
+
+	left: calc(-50% + 1px);
+}
+/* 密码输入框 -end --------------------------------------- */
+
+/* 列表上拉加载 --------------------------------------- */
+.van-list__finished-text, .van-list__loading {
+    width: 100%;
+}
+/* 列表上拉加载 -end --------------------------------------- */
+
+/* 下拉刷新 --------------------------------------- */
+.van-pull-refresh__head{
+	/*background: blue;*/
+
+	/*top:0px;*/
+
+	/*overflow: visible;*/
+	
+	/*height: auto;*/
+	/*height: calc(50 * 2 / 750 * 100vw);*/
+
+	/*line-height: calc(50 * 2 / 750 * 100vw);*/
+	/*line-height: normal;*/
+
+
+
+	line-height:1;
+
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	justify-content: center;
+
+}
+.van-pull-refresh{
+	overflow: visible;
+}
+
+.van-image
+/*,.van-image__loading*/
+/*,.van-icon*/
+, .van-icon::before
+{
+	vertical-align: middle;
+}
+.van-cell__left-icon, .van-cell__right-icon{
+	line-height: 1;
+	line-height: normal;
+}
+/* 下拉刷新 -end --------------------------------------- */
+
+
+/* 数字键盘 -end --------------------------------------- */
+.van-key{
+	line-height:1;
+
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: inline-flex;
+	-ms-align-items: center;
+	align-items: center;
+    justify-content: center;
+}
+/* 下拉刷新 -end --------------------------------------- */
+
+
+/* 通知栏 van-notice-bar -end --------------------------------------- */
+.van-notice-bar{
+	line-height: normal;
+}
+/* 通知栏 -end --------------------------------------- */
+
+/* vant -end --------------------------------------- */
+
+
+
+/*清除样式*/
+input{
+	background-color: transparent;
+	border: none;
+}
+img{
+	vertical-align: top;
+}
+
+/* px => rem
+	10rem == 设计稿满屏宽 750px
+	实例:
+		46px
+
+		满屏宽 375px 
+		calc(46 * 2 / 750 * 100vw) 
+
+		满屏宽 750px 
+		calc(46  / 750 * 100vw) 
+*/
+
+/* 常用样式 --------------------------------------- */
+.dn,
+.d-n,
+.d-none,
+.d_n{
+	display: none !important;
+}
+.db,
+.d-b,
+.d-block,
+.d_b{
+	display: block !important;
+}
+.di,
+.d-i,
+.d-inline,
+.d_i{
+	display: inline !important;
+}
+.dib,
+.d-ib,
+.d-inline-block,
+.d_ib{
+	display: inline-block !important;
+}
+.df,
+.d-f,
+.d-flex,
+.d_f{
+	display: flex !important;
+}
+.va_m,
+.va-m,
+.v-m{
+		vertical-align: middle !important;
+}
+.txt_over_ell {
+    white-space: nowrap;
+    /* 有效 */
+    word-break: break-all;
+    /* 无 长 数字/单词 换行效果 *//* word-wrap:break-word; *//* text-wrap:unrestricted; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pr,
+.p_r,
+.p-r,
+.po-r,
+.po_r
+{
+	position: relative;
+}
+.pa,
+.p_a,
+.p-a,
+.po-a,
+.po_a
+{
+	position: absolute !important;
+}
+
+.box_b,
+.box_bd,
+.bz_b,
+.bxz{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.flex_c,
+.f_c,
+.f-c{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+
+	justify-content: center;
+
+	-ms-align-items: center;
+	align-items: center;
+}
+.flex_ac,
+.f_ac,
+.f-ac{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+
+	-ms-align-items: center;
+	align-items: center;
+}
+.pe_all,
+.pe_a{
+	pointer-events: all;
+}
+.pe_none,
+.pe_n{
+	pointer-events: none;
+}
+/* 常用样式 -end --------------------------------------- */
+
+
+/* 项目常用样式 --------------------------------------- */
+.bg_style{
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	left: 0;
+
+	width: 100vw;
+	
+	/*right: 0;*/
+	/*bottom: 0;*/
+	/*width: 10rem;*/
+	/*margin: auto;*/
+
+	pointer-events: none;
+
+	position: relative;
+}
+.btn_false,
+.btn_no
+{
+	background:rgba(53,61,84,1);
+	color:rgba(116,127,155,1);
+}
+.gradient_btn,
+.btn_true,
+.btn_ok
+{
+	/*background:linear-gradient(90deg,#C700CA 0%,#236ED6 100%);*/
+	background:linear-gradient(90deg,rgba(184,19,195,1) 0%,rgba(57,110,207,1) 100%);
+	color:rgba(255,255,255,1);
+}
+/* 项目常用样式 -end --------------------------------------- */
+
+
+
+/* 背景 */
+.bg{
+}
+/* 页面内容 */
+.page_box{
+	position: relative;
+	z-index: 1;
+
+	min-height: 100vh;
+
+	/*position: absolute;*/
+	top: 0;
+	left: 0;
+
+}
+/*Day and night*/
+.page_box_day{
+	background: #77DB53;
+}
+.page_box_night{
+	background: #46BDAC;
+}
+
+
+/* 对照尺寸 -end --------------------------------------- */
+.contrast{
+	/* 375px下 */
+	position: fixed;
+	z-index: 99999;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	width:  calc(90 * 2 / 750 * 100vw);
+	height:  calc(30.5 * 2 / 750 * 100vw);
+
+	background: blue;
+
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.contrast_2{
+    position: fixed;
+    z-index: 99999;
+    width: 100vw;
+    left: 0;
+
+}
+
+.contrast_3{
+    background: blue;
+    height: 50px;
+    top: 50px;
+}
+
+.contrast_4{
+    background: red;
+    line-height: 50px;
+    bottom: 100px;
+}
+.contrast_height{
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	width: 10vw;
+	z-index: 999999;
+}
+.contrast_height_vh{
+	left: 0;
+	background: red;
+}
+.contrast_height_pr{
+	left: calc(10vw + 5vw);
+	background: blue;
+}
+.contrast_width{
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	height: 10vw;
+	z-index: 999999;
+}
+.contrast_width_vw{
+	top: 0;
+	background: red;
+}
+.contrast_width_rem{
+	top: calc(10vw + 5vw);
+	background: blue;
+}
+/* 对照尺寸 -end --------------------------------------- */
+
+/* 保护模式 --------------------------------------- */
+.protect_box{}
+.protect_bg{
+	z-index: 1;
+}
+.protect_time_box{
+	z-index: 11;
+	top: calc(45.5 * 2 / 750 * 100vw);
+	left: calc(16 * 2 / 750 * 100vw);
+
+	font-size:calc(15 * 2 / 750 * 100vw);
+	/*height:calc(15 * 2 / 750 * 100vw);*/
+	/*line-height: 1;*/
+	/*line-height: calc(15 * 2 / 750 * 100vw);*/
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(255,255,255,1);
+}
+.protect_time_img{
+	width: calc(18 * 2 / 750 * 100vw);
+	/*height: calc(18 * 2 / 750 * 100vw);*/
+	margin-right: calc(5.5 * 2 / 750 * 100vw);
+}
+.protect_time_name{
+	margin-right: calc(5 * 2 / 750 * 100vw);
+}
+.protect_time_num{}
+/* 保护模式 -end --------------------------------------- */
+
+
+/* 用户资源信息 --------------------------------------- */
+.resource_box{
+	/* 375px下 */
+	position: fixed;
+	z-index: 11;
+	top:  calc(8.5 * 2 / 750 * 10rem);
+	
+	
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	width:calc(165 * 2 / 750 * 10rem);
+	height:calc(30 * 2 / 750 * 10rem);
+	background:rgba(75,61,48,1);
+	border:calc(3 * 2 / 750 * 10rem) solid rgba(238,234,226,1);
+	/*border-image:linear-gradient(0deg, rgba(218,211,199,1), rgba(238,234,226,1)) 10 10;*/
+	box-shadow:calc(0 * 2 / 750 * 10rem) calc(2 * 2 / 750 * 10rem) calc(3 * 2 / 750 * 10rem) calc(0 * 2 / 750 * 10rem) rgba(0, 0, 0, 0.55), calc(0 * 2 / 750 * 10rem) calc(4 * 2 / 750 * 10rem) calc(5 * 2 / 750 * 10rem) calc(0 * 2 / 750 * 10rem) rgba(39,30,21,0.42);
+	border-radius:calc(15 * 2 / 750 * 10rem);
+
+	padding: 0 calc(10 * 2 / 750 * 10rem);
+
+	font-size:calc(14 * 2 / 750 * 10rem);
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(255,255,255,1);
+
+	white-space: nowrap;
+	overflow: hidden;
+
+}
+.resource_name{
+	margin-right: calc(5 * 2 / 750 * 10rem);
+}
+.resource_num{}
+.asset_box{
+	left: calc(15 * 2 / 750 * 10rem);
+}
+.asset_name{}
+.asset_num{
+	color: #ECD92F;
+}
+.integral_box{
+	right: calc(15 * 2 / 750 * 10rem);
+}
+.integral_name{}
+.integral_num{
+	color: #48E3FA;
+}
+/* 用户资源信息 -end --------------------------------------- */
+
+
+
+/* 晶石 --------------------------------------- */
+.crystals{
+	/*position: relative;*/
+	position: absolute;
+	top: 0;
+	left: 0;
+	/*width: 10rem;*/
+	/*height: 10rem;*/
+
+	width: 100%;
+	height: 100%;
+}
+.crystal_box{
+	position: absolute;
+
+	/*width:1.16rem;*/
+	/*height:2.21rem;*/
+
+	/*background: red;*/
+	/*display: inline-block;*/
+}
+.crystal_small{
+
+	/*
+		图片实际尺寸: 77 x 67 
+		750px的设计稿
+		光晕/水晶整体 
+			宽度 87px => 1.16rem
+			宽度 166px => 2.21rem
+	*/
+	width: calc(70  / 750 * 100vw);
+
+	position: absolute;
+	z-index: 2;
+
+	/*居中*/
+	left: calc(8 / 750 * 100vw);
+	top: 0;
+
+}
+.crystal_small_an{
+	position: relative;
+	/* animation
+		animation: name duration timing-function delay iteration-count direction;
+		animation-name	规定需要绑定到选择器的 keyframe 名称。。
+		animation-duration	规定完成动画所花费的时间，以秒或毫秒计。
+		animation-timing-function	规定动画的速度曲线。
+		animation-delay	规定在动画开始之前的延迟。
+		animation-iteration-count	规定动画应该播放的次数。
+			infinite	规定动画应该无限次播放。
+		animation-direction 属性定义是否应该轮流反向播放动画
+			alternate	轮流反向播放
+
+		与晶石时间错开
+			提前一半时间或者 轮流反向播放
+	*/
+	animation: crystal_small_an 3s linear -1.5s infinite;
+	-moz-animation: crystal_small_an 3s linear -1.5s infinite;	/* Firefox */
+	-webkit-animation: crystal_small_an 3s linear -1.5s infinite;	/* Safari 和 Chrome */
+	-o-animation: crystal_small_an 3s linear -1.5s infinite;	/* Opera */
+}
+@keyframes crystal_small_an
+{
+	from {
+		top: calc(0 * 2 / 750 * 100vw);
+		/*left: 0;*/
+	}
+	25% {
+		top: calc(5 * 2 / 750 * 100vw);
+	}
+	75% {
+		top: calc(-5 * 2 / 750 * 100vw);
+	}
+	to{
+		top: calc(0 * 2 / 750 * 100vw);
+	}
+}
+.crystal_glow{
+	/*width:1.16rem;*/
+	/*height:1.16rem;*/
+	width:100%;
+
+	/*
+		图片实际尺寸: 181 x 181 
+		750px的设计稿
+		光晕/水晶整体 
+			宽度 87px => 1.16rem
+			宽度 166px => 2.21rem
+	*/
+	width: calc(181  / 750 * 100vw);
+
+	position: absolute;
+	/*z-index: -1;*/
+
+	top: 0;
+	left: 0;
+
+	/*减去多余的*/
+	/*left: calc( 0rem - (181 - 87) / 2  / 750 * 100vw );*/
+
+	/*居中*/
+	left: calc( (100% - (181 / 750 * 100vw) ) / 2 );
+	top: calc( (0rem - ((181 - 87 + 30) / 750 * 100vw) ) / 2 );
+
+	/* margin 负外边距距离 百分比 */
+	/*left: 0;*/
+	/*right: 0;*/
+	/*margin: -50%;*/
+
+	/*background: black;*/
+}
+.crystal_glow_an1{
+	animation: crystal_glow_an 2s linear 0s infinite alternate;
+	-moz-animation: crystal_glow_an 2s linear 0s infinite alternate;	/* Firefox */
+	-webkit-animation: crystal_glow_an 2s linear 0s infinite alternate;	/* Safari 和 Chrome */
+	-o-animation: crystal_glow_an 2s linear 0s infinite alternate;	/* Opera */
+}
+.crystal_glow_an2{
+	animation: crystal_glow_an2 2s linear 0s infinite alternate;
+	-moz-animation: crystal_glow_an2 2s linear 0s infinite alternate;	/* Firefox */
+	-webkit-animation: crystal_glow_an2 2s linear 0s infinite alternate;	/* Safari 和 Chrome */
+	-o-animation: crystal_glow_an2 2s linear 0s infinite alternate;	/* Opera */
+}
+.crystal_glow_an3{
+	animation: crystal_glow_an3 2s linear 0s infinite alternate;
+	-moz-animation: crystal_glow_an3 2s linear 0s infinite alternate;	/* Firefox */
+	-webkit-animation: crystal_glow_an3 2s linear 0s infinite alternate;	/* Safari 和 Chrome */
+	-o-animation: crystal_glow_an3 2s linear 0s infinite alternate;	/* Opera */
+}
+@keyframes crystal_glow_an
+{
+	from {
+        transform:scale(1);
+        -webkit-transform:scale(1);  /*兼容-webkit-引擎浏览器*/
+        -moz-transform:scale(1);     /*兼容-moz-引擎浏览器*/
+	}
+	to{
+        transform:scale(0.5);
+        -webkit-transform:scale(0.5);  /*兼容-webkit-引擎浏览器*/
+        -moz-transform:scale(0.5);     /*兼容-moz-引擎浏览器*/
+	}
+}
+@keyframes crystal_glow_an2
+{
+	from {
+		opacity: 1;
+	}
+	to{
+		opacity: 0.5;     /*兼容-moz-引擎浏览器*/
+	}
+}
+@keyframes crystal_glow_an3
+{
+	from {
+		opacity: 1;
+        transform:scale(1);
+        -webkit-transform:scale(1);  /*兼容-webkit-引擎浏览器*/
+        -moz-transform:scale(1);     /*兼容-moz-引擎浏览器*/
+	}
+	to{
+		opacity: 0.5;     /*兼容-moz-引擎浏览器*/
+        transform:scale(0.5);
+        -webkit-transform:scale(0.5);  /*兼容-webkit-引擎浏览器*/
+        -moz-transform:scale(0.5);     /*兼容-moz-引擎浏览器*/
+	}
+}
+.crystal_crystal{
+	/*
+		图片实际尺寸: 55 x 110 
+		750px的设计稿
+	*/
+	width: calc( 50 / 750 * 100vw );
+    position: absolute;
+	z-index: 1;
+    left: calc( 18 / 750 * 100vw );
+    top: calc( 14 / 750 * 100vw );
+}
+.crystal_and_glow_an{
+	position: relative;
+	/* animation
+		animation: name duration timing-function delay iteration-count direction;
+		animation-name	规定需要绑定到选择器的 keyframe 名称。。
+		animation-duration	规定完成动画所花费的时间，以秒或毫秒计。
+		animation-timing-function	规定动画的速度曲线。
+		animation-delay	规定在动画开始之前的延迟。
+		animation-iteration-count	规定动画应该播放的次数。
+			infinite	规定动画应该无限次播放。
+		animation-direction 属性定义是否应该轮流反向播放动画
+			alternate	轮流反向播放
+	*/
+	animation: crystal_and_glow_an 3s linear infinite;
+	-moz-animation: crystal_and_glow_an 3s linear infinite;	/* Firefox */
+	-webkit-animation: crystal_and_glow_an 3s linear infinite;	/* Safari 和 Chrome */
+	-o-animation: crystal_and_glow_an 3s linear infinite;	/* Opera */
+}
+@keyframes crystal_and_glow_an
+{
+	/* 推荐最大向下深度: 10 */
+	from {
+		top: calc(0 * 2 / 750 * 100vw);
+		/*left: 0;*/
+	}
+	25% {
+		top: calc(5 * 2 / 750 * 100vw);
+	}
+	75% {
+		top: calc(-5 * 2 / 750 * 100vw);
+	}
+	to{
+		top: calc(0 * 2 / 750 * 100vw);
+	}
+}
+.crystal_pedestal{
+	/*
+		图片实际尺寸: 96 x 96
+		750px的设计稿
+		光晕/水晶整体 
+			宽度 87px => 1.16rem
+			宽度 166px => 2.21rem
+	*/
+	width:calc( 87 / 750 * 100vw );
+	position: absolute;
+	/*z-index: 0;*/
+	left: 0;
+	/*left: calc( (100% - (87 / 750 * 100vw) ) / 2 );*/
+	top: calc( (0rem + ((166 - 87) / 750 * 100vw) )  );
+}
+.crystal_img{
+	/*width:1.16rem;*/
+	/*height:2.21rem;*/
+
+	width:calc( 44 * 2 / 750 * 100vw );
+
+    vertical-align: top;
+
+	/*background: red;*/
+	/*opacity: 0.5;*/
+
+	position: relative;
+	z-index: 1;
+	/*position: absolute;*/
+	/*z-index: -1;*/
+}
+.crystal_time{
+	/*width:1.2rem;*/
+	/*height:0.37rem;*/
+	/*line-height:0.37rem;*/
+	/*border-radius:calc(0.37rem / 2);*/
+	/*font-size:0.27rem;*/
+
+	height:calc( 14 * 2 / 750 * 100vw );
+	line-height:calc( 14 * 2 / 750 * 100vw );
+	border-radius:calc(14 * 2 / 750 * 100vw / 2);
+	font-size:calc(10 * 2 / 750 * 100vw);
+
+	text-align: center;
+	background:rgba(182,229,221,1);
+
+	/*line-height:8px;*/
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(43,43,43,1);
+
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	margin-top: calc( 4 / 750 * 100vw );
+
+	/*color: blue;*/
+	/*height: calc( 14 * 2 / 750 * 100vw );*/
+	/*line-height: calc( 14 * 2 / 750 * 100vw );*/
+	width: auto;
+	padding: 0 calc( 6 * 2 / 750 * 100vw );
+	
+
+	line-height:1;
+
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+}
+/* 晶石 -end --------------------------------------- */
+
+
+
+
+/* 公告栏 --------------------------------------- */
+.notice_box{
+	background: rgba(248,246,222,1);
+	/*
+		title bg rgba(231,203,155,1)
+		background: rgbargba(231,203,155,1);
+	*/
+	border-radius: calc( 8 * 2 / 750 * 10rem );
+	/* padding: 0 calc( 10 * 2 / 750 * 10rem ); */
+	/* position: fixed; */
+	/* max-width: 100vw; */
+	width: calc(100vw - (12 + 58 + 12) * 2 / 750 * 10rem * 2 );
+	left: calc((12 + 58 + 12) * 2 / 750 * 10rem );
+	bottom: calc( (17.5 + 10) * 2 / 750 * 10rem );
+	overflow: hidden;
+	border: calc( 5 * 2 / 750 * 10rem ) solid rgba(178,131,49,1);
+}
+.notice_txt{
+    flex-shrink: 1;
+    /* height: calc( 17 * 2 / 750 * 10rem ); */
+    font-size: calc( 17 * 2 / 750 * 10rem );
+    font-family: PingFang SC;
+    font-weight: 800;
+    color: rgba(109,68,43,1);
+    overflow: hidden;
+    /* display: inline-block; */
+    margin: 0 calc( 10 * 2 / 750 * 10rem );
+}
+.notice_txt_an{
+    /*calc( 0px + (100vw - (12 + 58 + 12 - 15 - 10) * 2 / 750 * 10rem * 2) - 100%)*/
+
+	animation: notice_txt_an 3s linear 0s infinite;
+	-moz-animation: notice_txt_an 3s linear 0s infinite;	/* Firefox */
+	-webkit-animation: notice_txt_an 3s linear 0s infinite;	/* Safari 和 Chrome */
+	-o-animation: notice_txt_an 3s linear 0s infinite;	/* Opera */
+}
+@keyframes notice_txt_an
+{
+}
+.notice_close{
+    flex-shrink: 0;
+	width: calc( 15 * 2 / 750 * 10rem );
+    height: calc( 15 * 2 / 750 * 10rem );
+    margin: 0 calc( 10 * 2 / 750 * 10rem );
+    margin-left: 0;
+}
+.vant_notice_box{
+	margin: 0;
+	padding-right: calc( 5 * 2 / 750 * 10rem );
+	padding-left: calc( 15 * 2 / 750 * 10rem );
+}
+/* 公告栏 -end --------------------------------------- */
+
+
+
+
+/* 功能按钮 --------------------------------------- */
+.btn{
+	position: fixed;
+	/*z-index: 11;*/
+
+	/*bottom: calc( 15.5 * 2 / 750 * 100vw );*/
+	/*right: calc( 19.5 * 2 / 750 * 100vw );*/
+
+	bottom: calc( 255 * 2 / 750 * 100vw );
+	right: calc( 21 * 2 / 750 * 100vw );
+
+
+	text-align: center;
+
+	width:calc( 45 * 2 / 750 * 100vw );
+	width:calc( 40 * 2 / 750 * 100vw );
+	/*height:calc( 45 * 2 / 750 * 100vw );*/
+
+	/*width: 40px;*/
+	/*height: 40px;*/
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	border-radius:calc( 45 / 2 * 2 / 750 * 100vw );
+	border-radius:50%;
+
+	/*line-height:calc( 45 * 2 / 750 * 100vw );*/
+	border:calc( 2 * 2 / 750 * 100vw ) solid rgba(255,255,255,1);
+	background:linear-gradient(0deg, #D00700 0%, #F5342F 100%);
+	box-shadow:calc( 0 * 2 / 750 * 100vw ) calc( 2 * 2 / 750 * 100vw ) calc( 3 * 2 / 750 * 100vw ) calc( 0 * 2 / 750 * 100vw ) rgba(0, 0, 0, 0.55);
+
+	font-size:calc( 13 * 2 / 750 * 100vw );
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(255,255,255,1);
+	/*color: black;*/
+	/*-webkit-text-stroke:1px undefined;*/
+	/*text-stroke:1px undefined;*/
+
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
+}
+
+.produce{
+	position: fixed;
+	z-index: 11;
+	top: calc( 45.5 * 2 / 750 * 100vw );
+	/*left: 0;*/
+	/*bottom: 0;*/
+	right: calc( 16 * 2 / 750 * 100vw );
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	width:calc( 90 * 2 / 750 * 100vw );
+	height:calc( 30.5 * 2 / 750 * 100vw );
+
+	/*line-height:calc( (30.5 - 3 * 2) * 2 / 750 * 100vw );*/
+	/*text-align: center;*/
+
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	justify-content: center;
+
+	border:calc( 3 * 2 / 750 * 100vw ) solid rgba(238,234,225,1);
+	/*border-image:linear-gradient(0deg, rgba(219,211,199,1), rgba(238,234,225,1)) 10 10;*/
+	background:linear-gradient(0deg,rgba(252,136,15,1) 0%,rgba(255,207,17,1) 100%);
+	box-shadow:calc( 0 * 2 / 750 * 100vw ) calc( 2 * 2 / 750 * 100vw ) calc( 3 * 2 / 750 * 100vw ) calc( 0 * 2 / 750 * 100vw ) rgba(26,27,37,0.39);
+	border-radius:calc( 30.5 / 2 * 2 / 750 * 100vw );
+
+	font-size: calc( 15 * 2 / 750 * 100vw );
+	font-family:PingFang SC;
+	font-weight:bold;
+	color:rgba(155,68,10,1);
+
+	/*文字颜色渐变*/
+	/*background:linear-gradient(0deg,rgba(139,55,14,1) 0%, rgba(195,80,17,1) 100%);*/
+	/*-webkit-background-clip:text;*/
+	/*-webkit-text-fill-color:transparent;*/
+
+}
+.btns_box{
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+
+	width: 100%;
+	/*height: 100%;*/
+	height: 100vh;
+	max-height: calc( 667 * 2 / 750 * 100vw );
+
+	/*background: red;*/
+}
+.btns{
+	position: absolute;
+	/*position: fixed;*/
+	/*z-index: 1;*/
+}
+.btn_style_1{
+
+	width:calc( 45 * 2 / 750 * 10rem );
+	/*width:calc( 40 * 2 / 750 * 10rem );*/
+	height:calc( 45 * 2 / 750 * 10rem );
+
+	/*width: 40px;*/
+	/*height: 40px;*/
+
+	font-size:calc( 13 * 2 / 750 * 10rem );
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(255,255,255,1);
+	/*color: black;*/
+	/*-webkit-text-stroke:1px undefined;*/
+	/*text-stroke:1px undefined;*/
+
+
+	/*line-height:calc( 45 * 2 / 750 * 10rem );*/
+	border:calc( 2 * 2 / 750 * 10rem ) solid rgba(255,255,255,1);
+	background:linear-gradient(0deg, #D00700 0%, #F5342F 100%);
+	box-shadow:calc( 0 * 2 / 750 * 10rem ) calc( 2 * 2 / 750 * 10rem ) calc( 3 * 2 / 750 * 10rem ) calc( 0 * 2 / 750 * 10rem ) rgba(0, 0, 0, 0.55);
+
+
+}
+/* 功能按钮 -end --------------------------------------- */
+
+
+/* 弹出框 --------------------------------------- */
+.popup_box{
+	background:rgba(248,246,222,1);
+	border:calc( 5 * 2 / 750 * 10rem ) solid rgba(178,131,49,1);
+	border-radius:calc( 14 * 2 / 750 * 10rem );
+}
+.popup_box_list{
+	width:calc( 335 * 2 / 750 * 10rem );
+	height:calc( 460 * 2 / 750 * 10rem );
+}
+.popup_box_tip{
+	width:calc( 270 * 2 / 750 * 10rem );
+	min-height:calc( 145 * 2 / 750 * 10rem );
+}
+.popup_title_box{
+	background:rgba(231,203,155,1);
+	border-radius:calc( 8 * 2 / 750 * 10rem ) calc( 8 * 2 / 750 * 10rem ) calc( 0 * 2 / 750 * 10rem ) calc( 0 * 2 / 750 * 10rem );
+
+	padding: 0 calc(calc( 15 * 2 / 750 * 10rem ) + calc( 12 * 2 / 750 * 10rem ) * 2);
+}
+.popup_title_name{
+	min-height:calc( 34 * 2 / 750 * 10rem );
+	/*height:calc( 17 * 2 / 750 * 10rem );*/
+	font-size:calc( 17 * 2 / 750 * 10rem );
+	font-family:PingFang SC;
+	font-weight:800;
+	color:rgba(109,68,43,1);
+}
+.popup_title_icon{
+	width:calc( 15 * 2 / 750 * 10rem );
+	height:calc( 15 * 2 / 750 * 10rem );
+	top: calc( 8.5 * 2 / 750 * 10rem );
+	right: calc( 12 * 2 / 750 * 10rem );
+}
+.popup_content_box{
+    overflow: auto;
+    max-height: calc( (460 - 34 - 5 * 2) * 2 / 750 * 10rem );
+    box-sizing: border-box;
+}
+.popup_input{
+	/*display: block;*/
+	background-color: rgba(231,203,155,1);
+	width: calc( 200 * 2 / 750 * 10rem );
+    padding: calc( 5 * 2 / 750 * 10rem ) calc( 10 * 2 / 750 * 10rem );
+    margin: calc( 10 * 2 / 750 * 10rem ) auto;
+}
+.popup_input_vant{
+    margin: calc( 10 * 2 / 750 * 10rem ) auto;
+}
+
+
+/* 提示 --------------------------------------- */
+.popupTip_box{
+	width:calc( 270 * 2 / 750 * 10rem );
+	border:calc( 2 * 2 / 750 * 10rem ) solid rgba(178,131,49,1);
+}
+.popupTip_title{
+	color:#B28331;
+	font-weight:500;
+	min-height:calc( 56 * 2 / 750 * 10rem );
+}
+.popupTip_txt{
+	font-size:calc( 14 * 2 / 750 * 10rem );
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(178,131,49,1);
+
+	/*background: red;*/
+	/*
+	line-height:1;
+
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	justify-content: center;
+	*/
+
+	/*height:calc( 47 * 2 / 750 * 10rem );*/
+	line-height:calc( 23 * 2 / 750 * 10rem );
+	line-height:1;
+	margin-bottom:calc( 33 * 2 / 750 * 10rem );
+
+}
+.popupTip_btns{
+	margin-bottom:  calc( 14 * 2 / 750 * 10rem );
+}
+.popupTip_btn{
+	width:calc( 83 * 2 / 750 * 10rem );
+	height:calc( 28 * 2 / 750 * 10rem );
+	line-height:calc( 28 * 2 / 750 * 10rem );
+	border:calc( 2 * 2 / 750 * 10rem ) solid rgba(52,102,61,1);
+	background:linear-gradient(0deg,rgba(75,179,64,1) 0%,rgba(114,209,118,1) 100%);
+	border-radius:calc( 15 * 2 / 750 * 10rem );
+	color:rgba(255,255,255,1);
+
+
+	line-height:1;
+
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	justify-content: center;
+}
+/* 提示 -end --------------------------------------- */
+
+/* 控制器  --------------------------------------- */
+.controller_list{
+	padding: calc( 10 * 2 / 750 * 10rem );
+}
+/* 控制器 -end  --------------------------------------- */
+
+/* 道具  --------------------------------------- */
+.prop_list{
+	padding-left: calc( 27.5 * 2 / 750 * 10rem );
+	padding-bottom: calc( 12 * 2 / 750 * 10rem );
+
+	max-height: calc( (460 - 34 - 5 * 2) * 2 / 750 * 10rem );
+    box-sizing: border-box;
+
+}
+.prop_box{
+	width:calc( 129 * 2 / 750 * 10rem );
+	min-height:calc( 184 * 2 / 750 * 10rem );
+	background:rgba(255,255,255,1);
+	border-radius:calc( 8 * 2 / 750 * 10rem );
+
+	margin-right:  calc( 23 * 2 / 750 * 10rem );
+	margin-top: calc( 12 * 2 / 750 * 10rem );
+
+
+	padding-top:  calc( 20.5 * 2 / 750 * 10rem );
+}
+.prop_box:nth-of-type(2n){
+	margin-right:  calc( 0 * 2 / 750 * 10rem );
+}
+.prop_img{
+	max-width: calc( 70 * 2 / 750 * 10rem );
+	max-height: calc( 70 * 2 / 750 * 10rem );
+}
+.prop_name{
+	margin-top:  calc( 17 * 2 / 750 * 10rem );
+
+	font-size: calc( 14 * 2 / 750 * 10rem );
+	/*line-height: 1;*/
+	line-height:  calc( 14 * 2 / 750 * 10rem );
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(71,71,71,1);
+}
+.prop_num{
+	margin-top:  calc( 9 * 2 / 750 * 10rem );
+
+	line-height: calc( 12 * 2 / 750 * 10rem );
+	font-size: calc( 16 * 2 / 750 * 10rem );
+	font-family:PingFang SC;
+	font-weight:800;
+	color:rgba(27,27,27,1);
+}
+.prop_price{
+	margin-top:  calc( 9 * 2 / 750 * 10rem );
+
+	line-height: calc( 12 * 2 / 750 * 10rem );
+	font-size: calc( 16 * 2 / 750 * 10rem );
+	font-family:PingFang SC;
+	font-weight:bold;
+	color:rgba(37,201,226,1);
+	
+	flex-grow: 1;
+}
+.prop_btn{
+	margin-top:  calc( 15 * 2 / 750 * 10rem );
+
+	height: calc( 28 * 2 / 750 * 10rem );
+	background:linear-gradient(0deg,rgba(66,175,55,1) 0%,rgba(106,203,108,1) 100%);
+	border-radius: calc( 0 * 2 / 750 * 10rem )  calc( 0 * 2 / 750 * 10rem )  calc( 8 * 2 / 750 * 10rem )  calc( 8 * 2 / 750 * 10rem );
+
+	font-size: calc( 15 * 2 / 750 * 10rem );
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(255,255,255,1);
+}
+/* 道具 -end --------------------------------------- */
+
+/* 能源信息 --------------------------------------- */
+.popup_crystal_infos{
+	padding-top: calc( 25 * 2 / 750 * 10rem );
+	padding-bottom: calc( 13 * 2 / 750 * 10rem );
+}
+.popup_crystal{
+	margin-left: calc( 30 * 2 / 750 * 10rem );
+	flex-shrink: 0;
+	flex-grow: 0;
+
+}
+.popup_crystal_info{
+	line-height: 1;
+	flex-shrink: 1;
+	flex-grow: 1;
+}
+.popup_crystal_name{
+	font-size:calc( 16 * 2 / 750 * 10rem );
+	font-family:PingFang SC;
+	font-weight:bold;
+	color:rgba(178,131,49,1);
+
+	margin-top: calc( 14 * 2 / 750 * 10rem );
+}
+.popup_crystal_income{
+	font-size:calc( 13 * 2 / 750 * 10rem );
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(125,125,125,1);
+
+	margin-top: calc( 14 * 2 / 750 * 10rem );
+}
+.popup_crystal_status{
+	font-size:calc( 13 * 2 / 750 * 10rem );
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(234,20,20,1);
+
+	margin-top: calc( 11 * 2 / 750 * 10rem );
+}
+/* 能源信息 -end --------------------------------------- */
+
+/* 我的好友 --------------------------------------- */
+.friend_list{
+	padding: 0 calc( 20 * 2 / 750 * 10rem );
+}
+.friend_box{
+	height:calc( 80 * 2 / 750 * 10rem );
+	padding:  calc( 15 * 2 / 750 * 10rem ) 0 ;
+	border-bottom:calc( 2 * 2 / 750 * 10rem ) solid rgba(255,254,241,1);
+}
+.friend_img{
+	
+	/*max-width:calc( 48 * 2 / 750 * 10rem );*/
+	/*max-height:calc( 48 * 2 / 750 * 10rem );*/
+
+	width: calc( 48 * 2 / 750 * 10rem ); 
+	height: calc( 48 * 2 / 750 * 10rem ); 
+    object-fit: cover;
+
+
+	background:rgba(0,0,0,1);
+	border:calc( 2 * 2 / 750 * 10rem ) solid rgba(231,203,155,1);
+	border-radius:calc( 28 * 2 / 750 * 10rem );
+}
+.friend_name{
+	margin-left:  calc( 10 * 2 / 750 * 10rem );
+
+	font-size:calc( 15 * 2 / 750 * 10rem );
+	font-family:PingFang SC;
+	font-weight:bold;
+	color:rgba(64,64,64,1);
+}
+.friend_stat{
+	width:calc( 20 * 2 / 750 * 10rem );
+	/*height:calc( 48 * 2 / 750 * 10rem );*/
+	margin: 0 calc( 10 * 2 / 750 * 10rem );
+}
+.friend_btn{
+	width:calc( 73 * 2 / 750 * 10rem );
+	height:calc( 31 * 2 / 750 * 10rem );
+	border:calc( 2 * 2 / 750 * 10rem ) solid rgba(52,102,61,1);
+	background:linear-gradient(0deg,rgba(75,179,64,1) 0%,rgba(114,209,118,1) 100%);
+	border-radius:calc( 35 / 2 * 2 / 750 * 10rem );
+}
+.friend_btn_txt,
+.friend_icon{
+	font-size:calc( 13 * 2 / 750 * 10rem );
+
+    color: rgba(173,247,176,1);
+	/*background: linear-gradient(0deg,rgba(173,247,176,1),rgba(255,255,255,1));
+    -webkit-background-clip: text;
+    color: transparent;*/
+	/*text-shadow:0px calc( 1 * 2 / 750 * 10rem ) calc( 2 * 2 / 750 * 10rem ) 0px rgba(0, 0, 0, 0.22);*/
+}
+.friend_btn_txt{
+}
+.friend_icon{
+}
+/* 我的好友 -end --------------------------------------- */
+
+/* 记录 --------------------------------------- */
+.record_list{
+	padding: 0 calc( 20 * 2 / 750 * 10rem );
+}
+.record_box{
+	line-height: 1;
+	padding-top: calc( 17 * 2 / 750 * 10rem );
+	padding-bottom: calc( 15 * 2 / 750 * 10rem );
+	border-bottom:calc( 2 * 2 / 750 * 10rem ) solid rgba(231,225,197,1);
+}
+.record_info{
+}
+.record_name{
+	font-size:calc( 15 * 2 / 750 * 10rem );
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(49,49,49,1);
+}
+.record_time{
+	margin-top:  calc( 11 * 2 / 750 * 10rem );
+	font-size:calc( 13 * 2 / 750 * 10rem );
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(167,147,112,1);
+}
+.record_money{
+	font-size:calc( 16 * 2 / 750 * 10rem );
+	font-family:PingFang SC;
+	font-weight:bold;
+}
+.record_money_add{
+	color:rgba(49,164,41,1);
+}
+.record_money_subtract{
+	color:#E21E27;
+}
+/* 记录 -end --------------------------------------- */
+
+/* 弹出框 -end --------------------------------------- */
+
+
+/* 优先级别样式 --------------------------------------- */
+.txt_vm{
+	line-height:1;
+
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	
+}
+/* 优先级别样式 -end --------------------------------------- */
+
+
+/* 页面内容拉伸 page_scale --------------------------------------- */
+.page_scale{}
+.page_scale.bg_style{
+	min-height: 100vh;
+}
+.page_scale.btns_box{
+	max-height: none;
+}
+/* 页面内容拉伸 page_scale -end --------------------------------------- */

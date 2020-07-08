@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- polyfill 转js为es5 -->
+    <script src="common/cdn/polyfill.min.js"></script>
+    <script src="common/cdn/jquery.min.js"></script>
+    <script>
+        window.onerror = function(){
+            console.log('全局报错监听 window.onerror', JSON.stringify(arguments));
+        }
+    </script>
+    <!--                                                             -->
+    <!--                                                             -->
+    <!-- web app 禁用手机浏览器缓存 未确定----------  -->
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <!-- ----------------------- 禁用手机浏览器缓存 -end ---------------------- -->
+    <!--                                                             -->
+    <!--                                                             -->
+    <meta charset="utf-8" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover, shrink-to-fit=no" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta name="theme-color" content="#4188c9" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+
+    <title>分红塔投入</title>
+
+
+    <!-- css rem 单位转化js -->
+    <script src="common/cdn/flexible_css.js,flexible.js"></script>
+    <!-- vue -->
+    <script src="common/cdn/vue.js?1589263171368"></script>
+
+    <!-- ------------------- vant ui -------------------  -->
+    <!-- 引入样式文件 -->
+    <link rel="stylesheet" href="common/cdn/vant_index.css?1589263171368">
+    <!-- 引入 Vue 和 Vant 的 JS 文件 -->
+    <!-- <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
+    <script src="common/cdn/vant.min.js?1589263171368"></script>
+    <!-- ------------------- vant ui -end -------------------  -->
+    <!--                                        -->
+
+
+    <!-- 样式文件 -->
+    <link rel="stylesheet" href="common/wjw_uni/wjw_com.css?1589263171368" />
+    <link rel="stylesheet" href="css/game.css?1589263171368" />
+    <link rel="stylesheet" href="css/recharge.css?1589263171368" />
+    <style>
+        @media (max-width: 360px) {
+            .icon-group {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            .icon-news {
+                display: none !important;
+            }
+        }
+        .hid_data{
+            display: none;
+        }
+        .pre_line{
+            white-space: pre-line;
+        }
+
+        .bg_style{
+            position: absolute;
+        }
+
+
+        .title_box{
+            width:calc(690 / 750 * 100vw);
+            height:calc(300 / 750 * 100vw);
+            /*background:rgba(255,255,255,1) url('img/active_title_bg.png') no-repeat center/cover ;*/
+            border-radius:calc(10 / 750 * 100vw);
+
+            margin: calc(50 / 750 * 100vw) auto;
+        }
+        .title_txt{
+            font-size:calc(80 / 750 * 100vw);
+            font-family:PingFang SC;
+            font-weight:bold;
+            color:rgba(250,226,182,1);
+        }
+        .title_tip{
+            font-size:calc(30 / 750 * 100vw);
+            font-family:PingFang SC;
+            font-weight:500;
+            color:rgba(250,226,182,1);
+        }
+
+
+        .bonus_push_infos{
+            margin: 0 calc(30 / 750 * 100vw);
+            margin-top: calc(21 / 750 * 100vw);
+            margin-bottom: calc(47 / 750 * 100vw);
+        }
+        .bonus_push_info_box{
+            width: calc(160 / 750 * 100vw);
+            height: calc(140 / 750 * 100vw);
+            border-radius: calc(10 / 750 * 100vw);
+            background: #F9EEC7;
+        }
+        .bonus_push_info_box+
+        .bonus_push_info_box{
+            margin-left: calc(14 / 750 * 100vw);
+        }
+        .bonus_push_info_num{
+            font-size:calc(30 / 750 * 100vw);
+            font-family:PingFang SC;
+            font-weight:bold;
+            color:rgba(202,172,91,1);
+            margin: calc(30 / 750 * 100vw) 0;
+        }
+        .bonus_push_info_name{
+            font-size:calc(28 / 750 * 100vw);
+            font-family:PingFang SC;
+            font-weight:500;
+            color:rgba(202,172,91,1);
+        }
+
+
+
+        .input_li{
+            width:calc(690 / 750 * 100vw);
+            box-sizing: border-box;
+            border-radius: calc(10 / 750 * 100vw);
+        }
+        .tips_box{
+            color: #FFFAB6;
+        }
+        .page_btn{
+            text-align: center;
+            margin: auto;
+            height: 1.33rem;
+            border-radius: 0rem;
+            font-size: 0.37rem;
+            font-family: PingFang SC;
+            font-weight: bold;
+
+            width: auto;
+            background: #FDF48A;
+            color: #D4303F;
+        }
+        .popup_box{
+            border: none;
+            background: white;
+            /*border-radius: 0;*/
+            border-radius:calc(10 / 750 * 100vw);
+        }
+        .popupTip_title{
+            color: #000;
+        }
+        .popupTip_btn{
+            border: none;
+            background: red;
+            border-radius: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Vue"  style='display:none' :style='"display:block"' >
+
+        <!-- 背景 -->
+        <img class="bg bg_style" :class='{ page_scale:page_scale }' src="img/active_bg.png" />
+
+        <!-- 页面内容 -->
+        <div id="page_box" class="relative">
+            <!-- .title -->
+            <div class="title_box flex_c flex_column">
+                <div class="title_txt">{{parseInt(jackpot)}}</div>
+                <div class="title_tip">红包池</div>
+            </div>
+            <div class="bonus_push_infos margin_auto flex lh1">
+                <div class="bonus_push_info_box ta_c">
+                    <div class="bonus_push_info_num txt_over_ell no_shrink ">{{surplus_money}}</div>
+                    <div class="bonus_push_info_name">我的麦点</div>
+                </div>
+                <div class="bonus_push_info_box ta_c">
+                    <div class="bonus_push_info_num txt_over_ell no_shrink ">{{parseInt(throw_money)}}</div>
+                    <div class="bonus_push_info_name">我的投入</div>
+                </div>
+                <div class="bonus_push_info_box ta_c">
+                    <div class="bonus_push_info_num txt_over_ell no_shrink ">{{parseInt(total_wheat_point)}}</div>
+                    <div class="bonus_push_info_name">投入总数</div>
+                </div>
+                <div class="bonus_push_info_box ta_c">
+                    <div class="bonus_push_info_num txt_over_ell no_shrink ">{{ratio}}%</div>
+                    <div class="bonus_push_info_name">分红比例</div>
+                </div>
+            </div>
+            <!--                                        -->
+            <!--                                        -->
+            <!-- .input_box -->
+            <div class="input_box">
+                <div class="input_li">
+                    <input class="input txt_l" 
+                        type="number" 
+                        placeholder="请输入您要投入的麦点数量" 
+                        v-model='game_money'
+                        @focus='input_dysfunction_focus' 
+                        @blur='input_dysfunction_blur'
+                    >
+                </div>
+            </div>
+            <!--                                        -->
+            <!--                                        -->
+            <div class="tips_box">
+                <div class="tips_title">规则说明：</div>
+                <div class="tip_li pre_line">
+                    <span>1.投入麦点将消耗相对应的麦点余额；
+                    2.投入麦点占平台总投入量的比例，即奖池分红比例；
+                    3.奖池金额由游戏收入、广告收入组成；
+                    4.奖池累积时间自2020年5月10日分红塔板块上线起计算；
+                    5.首月奖池分红比例为100%；6月份的分红比例为50%；7月份的分红比例为30%；8月份的分红比例为15%；
+                    6.投入时间为5月10日-5月13日晚上24点。
+                    </span>
+                </div>
+            </div>
+            <!--                                        -->
+            <!--                                        -->
+            <!-- btn -->
+            <div class=" op0">
+                <div class="page_btn flex_c">立即投入</div>
+            </div>
+            <div class=" btn_fixed">
+                <!--  @click='password="",popup_show=true' -->
+                <div class="page_btn flex_c" @click='share_pointThrowInto_before'>立即投入</div>
+            </div>
+            <!-- <van-popup v-model="popup_show">
+                <van-password-input
+                    focused
+                    :value="password"
+                    length='6'
+                    info="密码为 6 位数字"
+                />
+                <van-number-keyboard
+                  show
+                  @input="onInput"
+                  @delete="onDelete"
+                />
+            </van-popup> -->
+
+
+            <!-- 输入交易密码 -->
+            <van-popup v-model="popup_show"  class='bg_tr' >
+                <div class=" popup_box_list popupTip_box box_bd h_a popup_box bg_white">
+                    <div class="popup_title_box bg_tr po_r box_bd">
+                        <div class="popup_title_name popupTip_title ta_c f-c">请输入交易密码</div>
+                        <img src="img/del.png" class="popup_title_icon po_a" @click='popup_show=false'>
+                    </div>
+
+                    <div class="popup_content_box ta_c">
+                        <div class="dn">{{
+                            password.length>=6
+                            &&
+                            (
+                                popup_show=false,
+                                share_pointThrowInto(),
+                                password=''
+                            )
+                        }}</div>
+                        <van-password-input
+                          class="popup_input_vant" 
+                          :value="password"
+                          focused
+                        >
+                        </van-password-input>
+
+
+                        <!-- <div class="popupTip_btns df flex_jc_a">
+                            <div class="popupTip_btn" @click='popup_show=false, password=""'>取消</div>
+                            <div class="popupTip_btn" @click='password?(popup_show=false,share_pointThrowInto()):Toast("请输入交易密码")'>确认</div>
+                        </div> -->
+                    </div>
+
+                </div>
+            </van-popup>
+            <van-number-keyboard
+                :show="popup_show"
+                :z-index='999999'
+                v-model='password'
+                maxlength='6'
+            >
+            </van-number-keyboard>
+
+        </div>
+    </div>
+</body>
+<script src="js/config.js?1589263171368"></script>
+<!-- <script src="//unpkg.com/crypto-js/crypto-js.js"></script> -->
+<script src="common/cdn/crypto-js.js"></script>
+<!-- <script>var create_api_token;</script> -->
+<script src="js/c_a_t.js?1589263171368"></script>
+
+<script src="common/http.js?1589263171368"></script>
+<script src="common/wjw_com.js?1589263171368"></script>
+<script type="text/javascript">
+
+
+
+var apply_param = getQueryString('apply')||'client';
+var http_pre = get_config()[apply_param].url;
+var api = http_pre+'/';
+
+var client_id = get_config()['active'].client_id;
+var client_secret = get_config()['active'].client_secret;
+
+// 测试token
+var user_token_test = '';
+
+
+//读取cookies 
+function getCookie(name) 
+{ 
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+ 
+    if(arr=document.cookie.match(reg))
+ 
+        return unescape(arr[2]); 
+    else 
+        return null; 
+} 
+
+// api_token: create_api_token(),
+
+window.vm = window.vue = new Vue({
+    el: '#Vue',
+    data: function() {
+        return {
+
+            user_token: getQueryString('user_token')
+            // ||window.user_token_test
+            ||getCookie('user_token') 
+            ||''
+            ,
+
+            page_scale: false,// 页面内容拉伸
+
+
+            jackpot: '00.00',// decimal 红包池
+            surplus_money: '00.00',//   decimal 我的麦点
+            throw_money: '00.00',// decimal 我的投入
+            total_wheat_point: '00.00',//   decimal 投入总数
+            ratio: '00.00',//   decimal 分红比例
+
+            game_money: '',
+            popup_show: false,
+            password: '',
+
+        }
+    },
+    watch: {
+        // h5移动端 typenumber 监听不到字符和空格输入 --------------------------------------------------
+        game_money:{
+            immediate: true,  //刷新加载 立马触发一次handler
+            handler: function(newValue, oldValue) {
+                console.log('game_money watch', arguments, this);
+
+                this.game_money=(this.game_money+'').substr(0,6);
+            },
+        },
+    },
+    created: function(e) {
+        console.log('实例创建完成后 created', arguments);
+        // console.log('that', that);
+
+        // 麦点分红塔界面
+        this.share_showpoint();
+    },
+    methods: {
+        
+        // app ------------------------------------------------
+
+        // 部分苹果手机点击输入框导致页面被顶起，按钮不灵敏
+        input_dysfunction: function(url){
+            console.log('点击输入框导致页面被顶起，按钮不灵敏', arguments);
+
+            var topInputNum;
+            $(document).on('focus', ':input', function() {
+                topInputNum = $("body").scrollTop();
+            }).on('blur', ':input', function() {
+                $("body").scrollTop(topInputNum);
+            })
+        },
+        input_dysfunction_focus: function(url){
+            console.log('点击输入框导致页面被顶起，按钮不灵敏  focus', arguments);
+
+            /*
+                部分ios 
+                    $('body').scrollTop()  无效。
+                    $(’html').scrollTop() 有效
+
+                为了防止其它浏览器这样，我们就可以写成：
+                    $('html,body').scrollTop()
+            */
+
+            // this.topInputNum = $("html,body").scrollTop();
+
+            // alert('input_dysfunction_focus '+$("html,body").scrollTop());
+            // vant.Toast('input_dysfunction_focus '+$("html,body").scrollTop());
+
+            // setInterval(()=>{
+
+            //     alert('setInterval input_dysfunction_focus '+$("html,body").scrollTop());
+            //     vant.Toast('setInterval input_dysfunction_focus '+$("html,body").scrollTop());
+                
+            // }, 2000);
+
+            // 聚焦时 $("html,body").scrollTop()为0, 部分ios 需要延迟才能获取真实数据 
+            // setTimeout 0 未获取
+            // setTimeout 100 可获取
+            var that = this;
+            setTimeout(function(){
+
+                that.topInputNum = $("html,body").scrollTop();
+                // alert('setTimeout input_dysfunction_focus '+$("html,body").scrollTop());
+                // vant.Toast('setTimeout input_dysfunction_focus '+$("html,body").scrollTop());
+                
+            }, 100);
+        },
+        input_dysfunction_blur: function(url){
+            console.log('点击输入框导致页面被顶起，按钮不灵敏  blur', arguments);
+
+            $("html,body").scrollTop(this.topInputNum);
+
+            // alert('input_dysfunction_blur '+this.topInputNum);
+            // vant.Toast('input_dysfunction_blur '+this.topInputNum);
+        },
+
+
+        // app -end ------------------------------------------------
+
+
+        // 麦点分红塔界面
+        share_showpoint: function(e) {
+            console.log('麦点分红塔界面', e);
+            
+            // 二次封装函数
+            var that = this;
+            wjw_http({
+                type:'get',
+                url:'share/showpoint',
+                data:{
+                    user_token: undefined,
+                    token: this.user_token,
+                },
+                success: function(res) {
+                    console.log('麦点分红塔界面 接口返回', res);
+
+                    /* 接口返回
+                        {
+                            "code": 0,
+                            "message": "获取成功",
+                            "data": {
+                                "jackpot": "20000.00",
+                                "surplus_money": "6149.4345",
+                                "throw_money": "3.0000",
+                                "total_wheat_point": "5.2000",
+                                "ratio": "0.57"
+                            }
+                        }
+
+                        jackpot decimal 红包池
+                        surplus_money   decimal 我的麦点
+                        throw_money decimal 我的投入
+                        total_wheat_point   decimal 投入总数
+                        ratio   decimal 分红比例
+                    */
+                    // vant.Toast(res.message||'麦点分红塔界面 成功');
+
+                    that.jackpot=res.data.jackpot||0;// decimal 红包池
+                    that.surplus_money=res.data.surplus_money||0;//   decimal 我的麦点
+                    that.throw_money=res.data.throw_money||0;// decimal 我的投入
+                    that.total_wheat_point=res.data.total_wheat_point||0;//   decimal 投入总数
+                    that.ratio=res.data.ratio||0;//   decimal 分红比例
+
+
+                },
+                fail: function(res) {
+                    console.log('麦点分红塔界面 失败', res);
+                    vant.Toast(res.message||'麦点分红塔界面 失败');
+                    if(res.code==2){
+                        vant.Toast(res.message||'登录失效');
+                        setTimeout(function(){
+                            window.location.replace('login.html')
+                        }, 1000);
+                    }
+                },
+            });
+        },
+
+        // 投入前确认
+        share_pointThrowInto_before: function(e) {
+            console.log('投入前确认', e);
+            var that = this;
+            vant.Dialog.confirm({
+              message: '是否确认投入',
+            })
+            .then(function(){
+                // 投入
+                that.share_pointThrowInto();
+            })
+            .catch(function(){
+            });
+        },
+
+        // 投入
+        share_pointThrowInto: function(e) {
+            console.log('投入', e);
+            // window.location.href = 'status_tips.html?id=123';
+            // return
+
+            if(this.game_money%1!=0||this.game_money<1){
+                vant.Toast('投入数量请输入整数');
+                return
+            }
+            
+            // 二次封装函数
+            var that = this;
+            wjw_http({
+                type:'POST',
+                url:'share/pointThrowInto',
+                data:{
+                    user_token: undefined,
+                    token: this.user_token,
+                    money: this.game_money,
+                },
+                success: function(res) {
+                    console.log('投入 接口返回', res);
+
+                    /* 接口返回code码说明：
+                            0成功，1失败，2登录过期，3账号被冻结，4服务器维护，9无接口访问权限（2，3，4踢出用户至登录页）
+
+                        {
+                            "code": 0,
+                            "message": "获取成功",
+                            "data": {
+                                "android_upload_url": "https://www.baidu.com",
+                                "ios_upload_url": "https://www.baidu.com"
+                            }
+                        }
+                    */
+                    vant.Toast(res.message||'投入 成功');
+
+
+                    that.game_money='';
+                    // 麦点分红塔界面
+                    that.share_showpoint();
+
+                },
+                fail: function(res) {
+                    console.log('投入 失败', res);
+                    vant.Toast(res.message||'投入 失败');
+                    if(res.code==2){
+                        vant.Toast(res.message||'登录失效');
+                        setTimeout(function(){
+                            window.location.replace('login.html')
+                        }, 1000);
+                    }
+                },
+            });
+        },
+
+    },
+
+})
+</script>
+
+</html>

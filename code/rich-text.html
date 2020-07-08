@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html>
+
+<script src="common/cdn/polyfill.min.js"></script>
+    <!-- jquery -->
+    <!-- <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
+    <script src="common/cdn/jquery.min.js"></script>
+<script>
+    window.onerror = function(){
+        console.log('全局报错监听 window.onerror', JSON.stringify(arguments));
+    }
+</script>
+<head>
+    <meta charset="utf-8" />
+    <title>富文本</title>
+
+	<!-- ------------------- 不缓存 -------------------  -->
+	<!--  ios内嵌H5页面缓存问题
+
+		ios嵌入了H5页面，修改了H5页面里的js后，ios app内页面不能及时更新最新代码， 
+		原来是 ios由于自带缓存的原因。
+
+		1.  给各个文件添加 版本号       
+
+		2.   meta 标签设置强制不缓存
+			<meta http-equiv="Pragma" content="no-cache">
+			<meta http-equiv="Cache-Control" content="no-cache">
+			<meta http-equiv="Expires" content="0">
+	-->
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<!-- ------------------- 不缓存 -end -------------------  -->
+
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover, shrink-to-fit=no" />
+
+
+    <!-- rem适配 -->
+    <!-- <script src="//g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script> -->
+    <!-- <script src="//www.wangjiangwei.top/common/flexible_css.js,flexible.js"></script> -->
+    <script src="common/cdn/flexible_css.js,flexible.js"></script>
+
+	<!-- ------------------- vue -------------------  -->
+	<!-- <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+	<script src="common/cdn/vue.js"></script>
+
+	<!-- ------------------- vant ui -------------------  -->
+	<!-- 引入样式文件 -->
+	<!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/vant@2.2/lib/index.css"> -->
+	<link rel="stylesheet" href="common/cdn/vant_index.css">
+	<!-- 引入 Vue 和 Vant 的 JS 文件 -->
+	<!-- <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
+	<!-- <script src="//cdn.jsdelivr.net/npm/vant@2.2/lib/vant.min.js"></script> -->
+	<script src="common/cdn/vant.min.js"></script>
+	<!-- ------------------- vant ui -end -------------------  -->
+
+    <link rel="stylesheet" href="common/wjw_uni/wjw_com.css?1589263171368" />
+    <style>
+    	button, .btn_click{
+    	    position: relative; /** 相对布局 **/
+    	}
+    	button:active,
+    	.btn_click:active{
+    	    top: 2px; /**向下偏移2px **/
+    	    left: 2px; /**向右偏移2px **/
+    	}
+		
+		html,body{
+			min-height: 100vh;
+		}
+    	body{
+    		background: #1B1F2E;
+    		position: relative;
+
+            word-wrap: break-word;
+    	}
+        .rich-text{
+            padding: calc(16 * 2 / 750 * 100vw);
+            /*font-size:calc(13 * 2 / 750 * 100vw);*/
+            /*line-height:calc(18 * 2 / 750 * 100vw);*/
+            font-family:PingFang SC;
+            font-weight:500;
+            color:rgba(116,127,155,1);
+
+            /*overflow-x: hidden;*/
+            overflow-x: auto;
+        }
+        .rich-text *{
+            max-width: calc(100vw - 16 * 2 * 2 / 750 * 100vw);
+        }
+    </style> 
+   
+</head>
+
+<body>
+	<!--  class="dn" :class='{block: Vue_show}' -->
+	<div id="Vue">
+		<div class="rich-text">
+            <!-- <p>img src="http://hzbxlajifenlei.oss-cn-hangzhou.aliyuncs.com/picture/202004/01/158572809816259.jpg" style="width:100%;"<br></p>       -->
+        </div>
+	</div>
+</body>
+<script src="js/config.js?1589263171368"></script>
+<!-- <script src="//unpkg.com/crypto-js/crypto-js.js"></script> -->
+<script src="common/cdn/crypto-js.js"></script>
+<script src="js/c_a_t.js?1589263171368"></script>
+
+<script src="common/wjw_com.js?1589263171368"></script>
+<script src="common/http.js?1589263171368"></script>
+
+<script>
+    /* 页面描述
+        富文本: "rich-text.html",
+        参数: 
+
+            页面参数: 
+                test_types=types
+
+            应用端(市场端与客户端): 
+                apply: market(市场端) / client(客户端)
+                默认或者无该类型则显示: client
+
+            内容参数: 
+                title=隐私政策
+                或
+                types=隐私政策
+                或
+                type=1
+
+                默认或者无该类型则显示: type=1
+
+                具体类型有: 
+                    (客户端)
+                    type    是   int 1隐私政策 2用户协议 3天天IU币 4关于我们 5使用指南
+                    (市场端)
+                    type    是   int 0：用户协议 1：隐私政策 2：使用指南
+                    0：用户协议 1：隐私政策 2：使用指南
+
+                示例: 域名/rich-text.html?title=隐私政策&apply=market
+
+    */
+
+
+
+    /* url地址get参数中文乱码问题
+        域名/rich-text.html?title=用户协议
+
+        js获取get参数: 
+            getQueryString('title') = "ç�¨æ�·å��è®®"
+            "ç�¨æ�·å��è®®" => ISO-8859-1字符
+
+        编码格式转换 (ISO-8859-1字符 / utf8字符) : 
+            decodeURIComponent(escape("ç�¨æ�·å��è®®")) == '用户协议'
+            unescape(encodeURIComponent('用户协议')); == 'ç�¨æ�·å��è®®'
+    */
+
+    var title_param = getQueryString('title')||getQueryString('types')||'';
+    var type_param = getQueryString('type');
+    var apply_param = getQueryString('apply')||'client';
+    console.log('title_param getQueryString', title_param);
+    console.log('type_param getQueryString', type_param);
+    console.log('apply_param getQueryString', apply_param);
+    
+    var client_id = get_config()[apply_param].client_id;
+    var client_secret = get_config()[apply_param].client_secret;
+
+
+    var http_pre = get_config()[apply_param].url;
+    var api = http_pre+'/';
+
+
+
+    // 编码格式转换 (ISO-8859-1字符 => utf8字符) : 
+    try{
+        title_param=decodeURIComponent(escape(title_param));
+    }catch(e){
+        title_param=title_param;
+    }
+    console.log('title_param 编码格式转换', title_param);
+
+    // type    是   int 1隐私政策 2用户协议 3天天IU币 4关于我们 5使用指南
+    // 1隐私政策2用户协议3天天IU币4关于我们5使用指南6签到规则
+    var type = 1;
+    var types_obj = {
+        // 客户端
+        client: {
+            '隐私政策': 1,
+            '用户协议': 2,
+            '天天IU币': 3,
+            '关于我们': 4,
+            '使用指南': 5,
+            '签到规则': 6,
+        },
+        // 市场端
+        market: {
+            '用户协议': 0,
+            '隐私政策': 1,
+            '使用指南': 2,
+        },
+    };
+    if(['null', null, undefined, 'undefined', ''].indexOf(type_param)==-1){
+        type = type_param-0;
+    }else if(title_param&&Object.keys(types_obj[apply_param]).indexOf(title_param)!=-1){
+        type = types_obj[apply_param][title_param];
+    }else{
+        type = 1;
+    }
+    console.log('type type判断', type);
+    console.log('title_param type判断', title_param);
+
+    (
+       title_param 
+    )
+    ||
+    (
+        title_param = 
+        Object.keys(types_obj[apply_param]).find(function(item){
+            return types_obj[apply_param][item]==type
+        })
+        ,
+        console.log('title_param 空值赋值', title_param)
+    );
+
+    (
+       title_param 
+    )
+    &&
+    (
+        document.title = title_param
+        ,
+        console.log('title_param 请求前 设置document.title', title_param)
+    );
+
+    function judge_obj_route(route, obj){
+        var arr = route.split(/[\.\[\]]/).filter(function(item){
+            return item!==""
+        });
+        if(obj){
+            return arr.every(function(item){
+                return (obj=obj[item])
+            })
+        }else{
+            return false;
+        }
+    }
+    // judge_obj_route2('res.data.name', res);
+    // judge_obj_route('data.name', res);
+    function judge_obj_route2(route, obj){
+        var arr = route.split(/[\.\[\]]/).filter(function(item){
+            return item!==""
+        });
+        arr.shift();
+        return judge_obj_route(arr.join('.'), obj);
+    }
+
+
+    /* 简要描述：
+
+        隐私政策/用户协议/天天IU币/关于我们/使用指南 （H5）接口
+        请求URL：
+
+        other/info
+        请求方式：
+
+        GET
+        参数：
+
+        参数名 必选  类型  说明
+        type    是   int 1隐私政策 2用户协议 3天天IU币 4关于我们 5使用指南
+        返回示例
+
+        {
+            "code": "0",
+            "message": "获取成功",
+            "data": {
+                "title": "隐私政策",
+                "content": "这是隐私政策相关内容"
+            }
+        }
+    */
+
+    if(apply_param=='market'&&title_param=='使用指南'){
+        //不可行
+        // var href = 'https://s1.ax1x.com/2020/04/14/GzymPe.jpg';
+        //不可行
+        // var href = '//s1.ax1x.com/2020/04/14/GzymPe.jpg';
+        //不可行
+        // var href = 'http://webh5.wangjiangwei.top/';
+
+        //不可行
+        // console.log('页面跳转 replace 替换');
+        // window.location.replace(href);
+
+        //不可行
+        // console.log('页面跳转 href 跳转');
+        // window.location.href = href;
+
+        //不可行
+        // setTimeout(function(){
+        //     console.log('页面跳转 href 跳转');
+        //     window.location.href = href;
+        // }, 100);
+
+        // $('body').html('<img style="width:100vw" src="http://s1.ax1x.com/2020/04/14/GzymPe.jpg" />')//不可行
+        
+        // $('body').html('<img style="width:100vw" src="/img/game/wodedaoju.png" />')//可行
+        // $('body').html('<img style="width:100vw" src="/img/GzymPe.jpg" />')//可行
+
+        if(getQueryString('test_types')=='types'){
+            var href = 'https://s1.ax1x.com/2020/04/14/GzymPe.jpg';
+            console.log('页面跳转 replace 替换');
+            window.location.replace(href);
+        }else{
+            $('body').html('<img style="width:100vw" src="/img/GzymPe.jpg" />')//可行
+        }
+    }else{
+
+        wjw_http
+        ({
+        	type:'GET',
+            // dataType: 'text',
+        	url:apply_param=='market'?'textcontent/other' : 'other/info',
+        	// param:{},// data 或 param
+        	data:{
+                api_token: create_api_token(apply_param),
+                type: type,
+            },
+        	success: function(res) {
+                console.log('获取富文本 接口返回 成功', res);
+
+                // vant.Toast('获取富文本 成功');
+
+                // 客户端
+                    judge_obj_route('data.title', res)
+                    &&
+                    (
+                        document.title = res.data.title
+                    );
+
+
+                    judge_obj_route('data.content', res)
+                    &&
+                    $('.rich-text').html(res.data.content);
+                    
+
+                // 市场端
+
+                    judge_obj_route('data.deal_title', res)
+                    &&
+                    (
+                        document.title = res.data.deal_title
+                    );
+
+
+                    judge_obj_route('data.deal_content', res)
+                    &&
+                    $('.rich-text').html(res.data.deal_content);
+
+
+            },
+        	fail: function(res) {
+                console.log('获取富文本 失败', res);
+                vant.Toast(res.message||'获取富文本 失败');
+            }
+        })
+
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html>
+
+    <!-- jquery -->
+    <!-- <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
+    <script src="common/cdn/jquery.min.js"></script>
+<script>
+    window.onerror = function(){
+        console.log('全局报错监听 window.onerror', JSON.stringify(arguments));
+    }
+</script>
+<head>
+    <meta charset="utf-8" />
+    <title>首页</title>
+
+	<!-- ------------------- 不缓存 -------------------  -->
+	<!--  ios内嵌H5页面缓存问题
+
+		ios嵌入了H5页面，修改了H5页面里的js后，ios app内页面不能及时更新最新代码， 
+		原来是 ios由于自带缓存的原因。
+
+		1.  给各个文件添加 版本号       
+
+		2.   meta 标签设置强制不缓存
+			<meta http-equiv="Pragma" content="no-cache">
+			<meta http-equiv="Cache-Control" content="no-cache">
+			<meta http-equiv="Expires" content="0">
+	-->
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<!-- ------------------- 不缓存 -end -------------------  -->
+
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover, shrink-to-fit=no" />
+
+
+    <!-- rem适配 -->
+    <!-- <script src="//g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script> -->
+    <!-- <script src="//www.wangjiangwei.top/common/flexible_css.js,flexible.js"></script> -->
+    <script src="common/cdn/flexible_css.js,flexible.js"></script>
+
+	<!-- ------------------- vue -------------------  -->
+	<!-- <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+	<script src="common/cdn/vue.js"></script>
+
+	<!-- ------------------- vant ui -------------------  -->
+	<!-- 引入样式文件 -->
+	<!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/vant@2.2/lib/index.css"> -->
+	<link rel="stylesheet" href="common/cdn/vant_index.css">
+	<!-- 引入 Vue 和 Vant 的 JS 文件 -->
+	<!-- <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
+	<!-- <script src="//cdn.jsdelivr.net/npm/vant@2.2/lib/vant.min.js"></script> -->
+	<script src="common/cdn/vant.min.js"></script>
+	<!-- ------------------- vant ui -end -------------------  -->
+
+    <link rel="stylesheet" href="common/wjw_uni/wjw_com.css?1589263171368" />
+    <style>
+    	button, .btn_click{
+    	    position: relative; /** 相对布局 **/
+    	}
+    	button:active,
+    	.btn_click:active{
+    	    top: 2px; /**向下偏移2px **/
+    	    left: 2px; /**向右偏移2px **/
+    	}
+		
+		html,body{
+			height: 100%;
+		}
+    	body{
+    		background: #111526;
+    		position: relative;
+    	}
+
+		.banner{
+			display: block;
+			width: 100vw;
+			/*background: #fff;*/
+    		padding-bottom: calc(16 / 750 * 100vw);
+		}
+
+		.phone{
+			position: absolute;
+			/* w/h: 1069*1175 */
+			/*width: calc( (459 / 1069 * 1175) / 750 * 100vw);*/
+			height: calc( 459 / 750 * 100vw);
+			top: calc( 120 / 750 * 100vw);
+			left: calc( 100% - 357  / 750 * 100vw);
+		}
+		.Partners{
+			display: block;
+			width: 100vw;
+			/*background: #fff;*/
+		}
+
+    	.form{
+    		background: #111526;
+
+    		display: -webkit-flex;
+    		display: -moz-flex;
+    		display: -ms-flex;
+    		display: -o-flex;
+    		display: flex;
+
+    		flex-direction: column;
+
+    		-ms-align-items: center;
+    		align-items: center;
+
+
+    		padding-top: calc(43 / 750 * 100vw);
+    		padding-bottom: calc(39 / 750 * 100vw);
+
+    	}
+    	.title{
+    		width: calc(385 / 750 * 100vw);
+    		margin-bottom: calc(24 / 750 * 100vw);
+    	}
+    	input,
+    	textarea{
+    		width: calc(340 / 750 * 100vw);
+    		padding-left: calc(11 / 750 * 100vw);
+
+    		font-size:calc(12 / 750 * 100vw);
+    		font-family:PingFang SC;
+    		font-weight:500;
+    		color:rgba(254,254,255,1);
+
+    		margin-bottom: calc(4 / 750 * 100vw);
+
+    		border: none;
+
+    		background: #424453;
+
+    		/*line-height: 1;*/
+    		line-height:calc(15 / 750 * 100vw);
+
+    	}
+    	input{
+    		height: calc(39 / 750 * 100vw);
+    	}
+    	.name{}
+    	.tel{}
+    	.company_name{}
+    	.msg{
+    		margin-bottom: calc(11 / 750 * 100vw);
+    		height: calc(133 / 750 * 100vw);
+
+    		/*line-height: calc(39 / 750 * 100vw);*/
+    		padding-top: calc( (39 - 15) / 2 / 750 * 100vw);
+
+    	}
+    	.btn{
+    		width: calc(164 / 750 * 100vw);
+    	}
+    </style>
+</head>
+
+<body>
+	<!--  class="dn" :class='{block: Vue_show}' -->
+	<div id="Vue">
+		
+		<div class="bg_white p_r ov_hid">
+			<img src="img/index/banner.png" alt="" class="banner" >
+			<img src="img/index/phone.png" alt="" class="phone" >
+			<img src="img/index/Partners.png" alt="" class="Partners" >
+		</div>
+
+		<div class="form">
+			<img src="img/index/title.png" alt="" class="title"  >
+			<input type="text" class="name" name="name"  placeholder="请输入您的姓名" oninput="remove_space(event), filt_name(event)" maxlength="20">
+			<input type="number" class="tel" name="tel"  placeholder="请输入您的联系号码" oninput="remove_space(event), filt_tel(event)" maxlength="11">
+			<input type="text" class="company_name" name="company_name"  placeholder="请输入您的公司或企业名称" oninput="remove_space(event)">
+			<textarea id="" cols="30" rows="10" class="msg" name="msg"  placeholder="请填写您的留言"  oninput="remove_space(event)"></textarea>
+			<img src="img/index/btn.png" alt="" class="btn btn_click submint" >
+		</div>
+	</div>
+</body>
+<script src="js/config.js?1589263171368"></script>
+<!-- <script src="//unpkg.com/crypto-js/crypto-js.js"></script> -->
+<script src="common/cdn/crypto-js.js"></script>
+<script src="js/c_a_t.js?1589263171368"></script>
+
+<script src="common/wjw_com.js?1589263171368"></script>
+<script src="common/http.js?1589263171368"></script>
+
+<script>
+
+    var apply_param = getQueryString('apply')||'client';
+    var http_pre = get_config()[apply_param].url;
+	var api = http_pre+'/';
+
+    function remove_space(event){
+        console.log('去除所有空格 arguments', arguments);
+        // if(event.keyCode == 32){
+        //     event.returnValue = false
+        // }
+        event.target.value = event.target.value.replace(/ /g, '');
+    }
+    // 验证手机号
+    function is_phone(phone) {
+        var reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
+        if (reg.test(phone)) {
+            console.log("手机号正确");
+            return true;
+        } else {
+            console.log("手机号错误");
+            return false;
+        }
+    }
+
+    function filt_name(event){
+        console.log('过滤名字 arguments', arguments);
+        event.target.value.length>20&&(event.target.value=event.target.value.substr(0,20), vant.Toast('名字最多可输入20位'))
+    }
+
+    function filt_tel(event){
+        console.log('过滤联系号码 arguments', arguments);
+        event.target.value=event.target.value.replace(/[^0-9]/g,'');
+        event.target.value.length>11&&(event.target.value=event.target.value.substr(0,11), vant.Toast('联系号码最多可输入11位'))
+    }
+
+	$('.submint').click(function(e){
+        console.log('表单提交', arguments);
+		
+        if(!is_phone($('[name=tel]').val())){
+            vant.Toast('手机号格式错误');
+            return
+        }
+
+        var submint_ok = true;
+        console.log("$('.form [name]')", $('.form [name]'));
+        $('.form [name]').each(function(item){
+            console.log("arguments", arguments);
+            var val = $(this).val();
+            console.log("val", val);
+            if(!val){
+                submint_ok = false
+                vant.Toast($(this).attr('placeholder'));
+            }
+            return !!val
+        })
+        console.log("submint_ok", submint_ok);
+        if(!submint_ok){
+            return
+        }
+        return
+
+        wjw_http({
+        	type:'POST',
+        	url:'enter/register',
+        	// param:{},// data 或 param
+        	data:{
+                name: $('[name=name]').val(),
+                tel: $('[name=tel]').val(),
+                company_name: $('[name=company_name]').val(),
+                msg: $('[name=msg]').val(),
+            },
+        	success: function(res) {
+                console.log('表单提交 接口返回 成功', res);
+                vant.Toast('提交成功');
+                $('.form *').val('');
+
+            },
+        	fail: function(res) {
+                console.log('提交失败', res);
+                vant.Toast(res.message||'提交失败');
+            }
+        })
+	})
+</script>
+
+</html>
